@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box}
+    body{margin:0}
+    ::placeholder{color:#9AA7BC}
+    input,select,button{font-family:'Manrope',sans-serif}
+    @keyframes floatUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+  </style>
+</helmet>
+<div style="font-family:'Manrope',sans-serif;color:#0A1B33;background:#fff">
+  <dc-import name="SiteNav" active="home" hint-size="100%,78px"></dc-import>
+
+  <!-- HERO -->
+  <section style="position:relative;overflow:hidden;background:linear-gradient(118deg,#08182f 0%,#0e2b59 52%,#14397a 100%)">
+    <image-slot id="home-hero" style="position:absolute;inset:0;width:100%;height:100%;opacity:0.22" fit="cover" placeholder="Drop a hero photo (executive sedan at night)"></image-slot>
+    <div style="position:absolute;inset:0;background:linear-gradient(118deg,rgba(8,24,47,0.92) 30%,rgba(14,43,89,0.72) 100%)"></div>
+    <div style="position:relative;max-width:1240px;margin:0 auto;padding:84px 32px 150px;display:grid;grid-template-columns:1.15fr 0.85fr;gap:56px;align-items:center">
+      <div>
+        <div style="display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.18);padding:8px 15px;border-radius:100px;margin-bottom:26px">
+          <span style="width:7px;height:7px;border-radius:50%;background:#3ddc84;box-shadow:0 0 10px #3ddc84"></span>
+          <span style="color:#CFE0FF;font-size:13px;font-weight:600;letter-spacing:.3px">Available 24/7 · On-time guarantee</span>
+        </div>
+        <h1 style="font-family:'Archivo',sans-serif;font-weight:900;font-size:62px;line-height:1.04;letter-spacing:-1.5px;color:#fff;margin:0 0 22px">Arrive in command.<br>Every mile, on time.</h1>
+        <p style="font-size:19px;line-height:1.6;color:#C2D0E8;max-width:520px;margin:0 0 34px">Chauffeured airport, corporate, and event transportation built for executives who measure time in meetings, not minutes lost.</p>
+        <div style="display:flex;gap:36px;flex-wrap:wrap">
+          <div><div style="font-family:'Archivo',sans-serif;font-weight:800;font-size:30px;color:#fff">18+</div><div style="font-size:13.5px;color:#9DB2D6;font-weight:600">Years chauffeuring</div></div>
+          <div style="width:1px;background:rgba(255,255,255,0.15)"></div>
+          <div><div style="font-family:'Archivo',sans-serif;font-weight:800;font-size:30px;color:#fff">50k+</div><div style="font-size:13.5px;color:#9DB2D6;font-weight:600">Rides completed</div></div>
+          <div style="width:1px;background:rgba(255,255,255,0.15)"></div>
+          <div><div style="font-family:'Archivo',sans-serif;font-weight:800;font-size:30px;color:#fff;display:flex;align-items:center;gap:6px">4.9<svg width="22" height="22" viewBox="0 0 24 24" fill="#F5B829"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.6 1.4 6.8L12 17.8 5.9 20.4l1.4-6.8L2.2 9l6.9-.7z"/></svg></div><div style="font-size:13.5px;color:#9DB2D6;font-weight:600">Avg. client rating</div></div>
+        </div>
+      </div>
+
+      <!-- BOOKING WIDGET -->
+      <div style="background:#fff;border-radius:20px;box-shadow:0 30px 70px rgba(4,16,40,0.45);padding:28px">
+        <sc-if value="{{ submitted }}" hint-placeholder-val="{{ false }}">
+          <div style="text-align:center;padding:24px 8px">
+            <div style="width:62px;height:62px;border-radius:50%;background:#E7F6EE;display:flex;align-items:center;justify-content:center;margin:0 auto 18px"><svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="m5 13 4 4 10-11" stroke="#16a35a" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <h3 style="font-family:'Archivo',sans-serif;font-size:22px;margin:0 0 8px;color:#0A1B33">Quote request received</h3>
+            <p style="font-size:14.5px;color:#5A6B82;line-height:1.6;margin:0 0 22px">A reservations specialist will confirm your <strong style="color:#0A1B33">{{ summaryService }}</strong> rate within 15 minutes.</p>
+            <button onClick="{{ reset }}" style="background:#F1F5FB;border:none;color:#1856c5;font-weight:700;font-size:14.5px;padding:11px 20px;border-radius:9px;cursor:pointer">Book another ride</button>
+          </div>
+        </sc-if>
+        <sc-if value="{{ notSubmitted }}" hint-placeholder-val="{{ true }}">
+        <div>
+          <h3 style="font-family:'Archivo',sans-serif;font-size:21px;margin:0 0 4px;color:#0A1B33">Reserve your ride</h3>
+          <p style="font-size:13.5px;color:#7A879C;margin:0 0 18px">Instant estimate · no card required</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:18px">
+            <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="4">
+              <button onClick="{{ t.onClick }}" style="{{ t.style }}">{{ t.label }}</button>
+            </sc-for>
+          </div>
+          <form ref="{{ formRef }}" onSubmit="{{ onSubmit }}">
+            <div style="display:flex;flex-direction:column;gap:13px">
+              <label style="display:block">
+                <span style="font-size:12px;font-weight:700;color:#5A6B82;letter-spacing:.3px;text-transform:uppercase">Pickup location</span>
+                <input name="pickup" required placeholder="Address, airport, or venue" style="margin-top:6px;width:100%;border:1.5px solid #DCE4EF;border-radius:10px;padding:12px 14px;font-size:14.5px;color:#0A1B33;outline:none" style-focus="border-color:#1856c5">
+              </label>
+              <label style="display:block">
+                <span style="font-size:12px;font-weight:700;color:#5A6B82;letter-spacing:.3px;text-transform:uppercase">Drop-off location</span>
+                <input name="dropoff" required placeholder="Where to?" style="margin-top:6px;width:100%;border:1.5px solid #DCE4EF;border-radius:10px;padding:12px 14px;font-size:14.5px;color:#0A1B33;outline:none" style-focus="border-color:#1856c5">
+              </label>
+              <div style="display:grid;grid-template-columns:1fr 1fr 0.8fr;gap:10px">
+                <label style="display:block">
+                  <span style="font-size:12px;font-weight:700;color:#5A6B82;letter-spacing:.3px;text-transform:uppercase">Date</span>
+                  <input name="date" type="date" required style="margin-top:6px;width:100%;border:1.5px solid #DCE4EF;border-radius:10px;padding:12px 12px;font-size:14px;color:#0A1B33;outline:none" style-focus="border-color:#1856c5">
+                </label>
+                <label style="display:block">
+                  <span style="font-size:12px;font-weight:700;color:#5A6B82;letter-spacing:.3px;text-transform:uppercase">Time</span>
+                  <input name="time" type="time" required style="margin-top:6px;width:100%;border:1.5px solid #DCE4EF;border-radius:10px;padding:12px 12px;font-size:14px;color:#0A1B33;outline:none" style-focus="border-color:#1856c5">
+                </label>
+                <label style="display:block">
+                  <span style="font-size:12px;font-weight:700;color:#5A6B82;letter-spacing:.3px;text-transform:uppercase">Pax</span>
+                  <input name="pax" type="number" min="1" max="56" value="2" style="margin-top:6px;width:100%;border:1.5px solid #DCE4EF;border-radius:10px;padding:12px 10px;font-size:14px;color:#0A1B33;outline:none" style-focus="border-color:#1856c5">
+                </label>
+              </div>
+              <button type="submit" style="margin-top:4px;background:linear-gradient(120deg,#1856c5,#2f74e6);color:#fff;font-weight:800;font-size:16px;border:none;padding:15px;border-radius:11px;cursor:pointer;box-shadow:0 12px 26px rgba(24,86,197,0.32);letter-spacing:.2px" style-hover="filter:brightness(1.06)">Get Instant Quote →</button>
+            </div>
+          </form>
+        </div>
+        </sc-if>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST STRIP -->
+  <section style="background:#fff;border-bottom:1px solid #EDF1F7">
+    <div style="max-width:1240px;margin:0 auto;padding:30px 32px;display:flex;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap">
+      <span style="font-size:13px;font-weight:700;letter-spacing:1.5px;color:#94A2B8;text-transform:uppercase">Trusted by teams at</span>
+      <div style="display:flex;align-items:center;gap:48px;flex-wrap:wrap;opacity:0.62">
+        <span style="font-family:'Archivo',sans-serif;font-weight:800;font-size:20px;color:#3A4860;letter-spacing:.5px">MERIDIAN</span>
+        <span style="font-family:'Archivo',sans-serif;font-weight:800;font-size:20px;color:#3A4860;letter-spacing:-1px">Northwind</span>
+        <span style="font-family:'Archivo',sans-serif;font-weight:800;font-size:20px;color:#3A4860;letter-spacing:1px">VANTA&nbsp;GROUP</span>
+        <span style="font-family:'Archivo',sans-serif;font-weight:800;font-size:20px;color:#3A4860">Halcyon&nbsp;Bank</span>
+        <span style="font-family:'Archivo',sans-serif;font-weight:800;font-size:20px;color:#3A4860;letter-spacing:.5px">ORBITAL</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section style="max-width:1240px;margin:0 auto;padding:96px 32px 20px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:46px;flex-wrap:wrap">
+      <div>
+        <span style="font-size:13px;font-weight:800;letter-spacing:2px;color:#1856c5;text-transform:uppercase">What we do</span>
+        <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:42px;letter-spacing:-1px;margin:12px 0 0;max-width:620px;line-height:1.08">Transportation tailored to every itinerary</h2>
+      </div>
+      <a href="services.dc.html" style="color:#1856c5;font-weight:700;font-size:15px;text-decoration:none;white-space:nowrap;display:flex;align-items:center;gap:7px" style-hover="gap:11px">All services →</a>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:22px">
+      <sc-for list="{{ services }}" as="s" hint-placeholder-count="4">
+        <a href="services.dc.html" style="display:block;text-decoration:none;background:#fff;border:1px solid #E8EDF4;border-radius:16px;padding:30px 26px;transition:all .2s" style-hover="border-color:#1856c5;box-shadow:0 18px 38px rgba(20,52,110,0.12);transform:translateY(-4px)">
+          <div style="width:54px;height:54px;border-radius:13px;background:#EEF3FC;display:flex;align-items:center;justify-content:center;margin-bottom:20px">{{ s.iconEl }}</div>
+          <h3 style="font-family:'Archivo',sans-serif;font-weight:700;font-size:19px;color:#0A1B33;margin:0 0 9px">{{ s.title }}</h3>
+          <p style="font-size:14.5px;line-height:1.6;color:#5A6B82;margin:0">{{ s.desc }}</p>
+        </a>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- FLEET PREVIEW -->
+  <section style="background:#F5F8FC;margin-top:96px">
+    <div style="max-width:1240px;margin:0 auto;padding:90px 32px">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:46px;flex-wrap:wrap">
+        <div>
+          <span style="font-size:13px;font-weight:800;letter-spacing:2px;color:#1856c5;text-transform:uppercase">The fleet</span>
+          <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:42px;letter-spacing:-1px;margin:12px 0 0;line-height:1.08">Immaculate vehicles,<br>professional chauffeurs</h2>
+        </div>
+        <a href="fleet.dc.html" style="color:#1856c5;font-weight:700;font-size:15px;text-decoration:none;white-space:nowrap" style-hover="text-decoration:underline">View full fleet →</a>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
+        <sc-for list="{{ vehicles }}" as="v" hint-placeholder-count="3">
+          <a href="fleet.dc.html" style="display:block;text-decoration:none;background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 6px 22px rgba(20,52,110,0.07);transition:all .2s" style-hover="box-shadow:0 22px 46px rgba(20,52,110,0.16);transform:translateY(-4px)">
+            <image-slot id="{{ v.slotId }}" style="width:100%;height:210px;display:block" shape="rect" fit="cover" placeholder="{{ v.placeholder }}"></image-slot>
+            <div style="padding:24px 24px 26px">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+                <h3 style="font-family:'Archivo',sans-serif;font-weight:700;font-size:20px;color:#0A1B33;margin:0">{{ v.name }}</h3>
+                <span style="font-size:13px;font-weight:700;color:#1856c5;background:#EEF3FC;padding:5px 11px;border-radius:100px">{{ v.seats }}</span>
+              </div>
+              <p style="font-size:14px;color:#5A6B82;line-height:1.55;margin:0">{{ v.desc }}</p>
+            </div>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section style="max-width:1240px;margin:0 auto;padding:96px 32px">
+    <div style="display:grid;grid-template-columns:0.9fr 1.1fr;gap:64px;align-items:center">
+      <div>
+        <span style="font-size:13px;font-weight:800;letter-spacing:2px;color:#1856c5;text-transform:uppercase">Why Destiny</span>
+        <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:42px;letter-spacing:-1px;margin:12px 0 18px;line-height:1.08">The details others overlook</h2>
+        <p style="font-size:17px;line-height:1.65;color:#5A6B82;margin:0 0 30px;max-width:440px">From flight-tracking to chauffeur etiquette, every safeguard exists so your schedule never slips.</p>
+        <a href="contact.dc.html" style="display:inline-block;background:#1856c5;color:#fff;font-weight:700;font-size:15.5px;text-decoration:none;padding:14px 28px;border-radius:11px;box-shadow:0 12px 26px rgba(24,86,197,0.28)" style-hover="background:#0f3f99">Reserve now</a>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px">
+        <sc-for list="{{ pillars }}" as="p" hint-placeholder-count="4">
+          <div style="background:#fff;border:1px solid #E8EDF4;border-radius:15px;padding:26px 24px">
+            <div style="width:46px;height:46px;border-radius:11px;background:#EEF3FC;display:flex;align-items:center;justify-content:center;margin-bottom:16px">{{ p.iconEl }}</div>
+            <h3 style="font-family:'Archivo',sans-serif;font-weight:700;font-size:17px;color:#0A1B33;margin:0 0 7px">{{ p.title }}</h3>
+            <p style="font-size:13.5px;line-height:1.55;color:#5A6B82;margin:0">{{ p.desc }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section style="background:#08182f;color:#fff">
+    <div style="max-width:1240px;margin:0 auto;padding:90px 32px">
+      <div style="text-align:center;margin-bottom:56px">
+        <span style="font-size:13px;font-weight:800;letter-spacing:2px;color:#5fa0ff;text-transform:uppercase">Simple by design</span>
+        <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:42px;letter-spacing:-1px;margin:12px 0 0;color:#fff">Book in three steps</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:30px;position:relative">
+        <sc-for list="{{ steps }}" as="st" hint-placeholder-count="3">
+          <div style="text-align:center">
+            <div style="width:70px;height:70px;border-radius:50%;background:linear-gradient(150deg,#1856c5,#3b82f6);display:flex;align-items:center;justify-content:center;margin:0 auto 22px;font-family:'Archivo',sans-serif;font-weight:800;font-size:26px;color:#fff;box-shadow:0 14px 30px rgba(24,86,197,0.4)">{{ st.n }}</div>
+            <h3 style="font-family:'Archivo',sans-serif;font-weight:700;font-size:20px;margin:0 0 10px;color:#fff">{{ st.title }}</h3>
+            <p style="font-size:15px;line-height:1.6;color:#A9BBD8;margin:0 auto;max-width:280px">{{ st.desc }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section style="max-width:1240px;margin:0 auto;padding:96px 32px">
+    <div style="text-align:center;margin-bottom:50px">
+      <span style="font-size:13px;font-weight:800;letter-spacing:2px;color:#1856c5;text-transform:uppercase">Client voices</span>
+      <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:42px;letter-spacing:-1px;margin:12px 0 0;line-height:1.08">Reliability they remember</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
+      <sc-for list="{{ reviews }}" as="r" hint-placeholder-count="3">
+        <div style="background:#fff;border:1px solid #E8EDF4;border-radius:16px;padding:32px 28px;display:flex;flex-direction:column;gap:18px">
+          <div style="display:flex;gap:3px">{{ stars }}</div>
+          <p style="font-size:16px;line-height:1.65;color:#2A3852;margin:0;flex:1">"{{ r.quote }}"</p>
+          <div style="display:flex;align-items:center;gap:13px;border-top:1px solid #EEF1F6;padding-top:18px">
+            <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(140deg,#1856c5,#3b82f6);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-family:'Archivo',sans-serif;font-size:16px">{{ r.initials }}</div>
+            <div><div style="font-weight:700;font-size:14.5px;color:#0A1B33">{{ r.name }}</div><div style="font-size:13px;color:#7A879C">{{ r.role }}</div></div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <section style="max-width:1240px;margin:0 auto 96px;padding:0 32px">
+    <div style="position:relative;overflow:hidden;border-radius:24px;background:linear-gradient(120deg,#0e2b59,#1856c5);padding:66px 60px;display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap">
+      <div style="position:absolute;right:-60px;top:-60px;width:320px;height:320px;border-radius:50%;background:rgba(255,255,255,0.06)"></div>
+      <div style="position:relative">
+        <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:38px;letter-spacing:-0.8px;color:#fff;margin:0 0 12px;line-height:1.1">Your next arrival starts here</h2>
+        <p style="font-size:17px;color:#CFE0FF;margin:0;max-width:520px;line-height:1.6">Get a transparent quote in minutes — or speak with a reservations specialist any hour of the day.</p>
+      </div>
+      <div style="position:relative;display:flex;gap:14px;flex-wrap:wrap">
+        <a href="contact.dc.html" style="background:#fff;color:#1856c5;font-weight:800;font-size:16px;text-decoration:none;padding:16px 30px;border-radius:12px" style-hover="transform:translateY(-2px)">Get a Quote</a>
+        <a href="tel:18005550199" style="background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.3);color:#fff;font-weight:700;font-size:16px;text-decoration:none;padding:16px 30px;border-radius:12px" style-hover="background:rgba(255,255,255,0.2)">Call 1 (800) 555-0199</a>
+      </div>
+    </div>
+  </section>
+
+  <dc-import name="SiteFooter" hint-size="100%,420px"></dc-import>
+
+  <!-- STICKY QUOTE -->
+  <a href="contact.dc.html" style="position:fixed;right:26px;bottom:26px;z-index:60;background:linear-gradient(120deg,#1856c5,#2f74e6);color:#fff;font-weight:800;font-size:15.5px;text-decoration:none;padding:15px 26px;border-radius:100px;box-shadow:0 16px 36px rgba(24,86,197,0.45);display:flex;align-items:center;gap:10px" style-hover="transform:translateY(-3px)">
+    <svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M3 16.5h18M5.5 16.5l1.6-5.2A2.5 2.5 0 0 1 9.5 9.5h5a2.5 2.5 0 0 1 2.4 1.8l1.6 5.2M7 19.5v-3M17 19.5v-3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7.5" cy="16.5" r="1.5" fill="#fff"/><circle cx="16.5" cy="16.5" r="1.5" fill="#fff"/></svg>
+    Get a Quote
+  </a>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  state = { tab: 'Airport', submitted: false, summaryService: 'Airport' };
+  constructor(p){ super(p); this.formRef = React.createRef(); }
+
+  icon(svg){ return React.createElement('span',{dangerouslySetInnerHTML:{__html:svg}}); }
+
+  renderVals() {
+    const tabNames = ['Airport','Corporate','Event','Hourly'];
+    const tabBase = "padding:11px 8px;border-radius:10px;border:1.5px solid #E2E8F2;background:#fff;color:#5A6B82;font-weight:700;font-size:14px;cursor:pointer;transition:all .15s";
+    const tabOn = "padding:11px 8px;border-radius:10px;border:1.5px solid #1856c5;background:#1856c5;color:#fff;font-weight:700;font-size:14px;cursor:pointer";
+    const tabs = tabNames.map(n => ({
+      label: n,
+      style: n === this.state.tab ? tabOn : tabBase,
+      onClick: () => this.setState({ tab: n }),
+    }));
+
+    const star = '<svg width="18" height="18" viewBox="0 0 24 24" fill="#F5B829"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.6 1.4 6.8L12 17.8 5.9 20.4l1.4-6.8L2.2 9l6.9-.7z"/></svg>';
+    const stars = this.icon(star.repeat(5));
+
+    const wrap = (inner) => '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1856c5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">'+inner+'</svg>';
+    const services = [
+      { title:'Airport Transfers', desc:'Flight-tracked pickups with curbside or meet-and-greet service.', svg: wrap('<path d="M2 16l8-2 5-9 2 1-2 8 5 2v2l-7-1-2 3-2-1 1-4-6 1z"/>') },
+      { title:'Corporate Travel', desc:'Account billing, dedicated chauffeurs, and discreet professionalism.', svg: wrap('<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>') },
+      { title:'Group Shuttle', desc:'Conferences, roadshows, and crew moves on Sprinters and minibuses.', svg: wrap('<rect x="3" y="6" width="18" height="11" rx="2"/><path d="M3 11h18M7 21v-2M17 21v-2"/>') },
+      { title:'Special Events', desc:'Weddings, galas, and milestones with red-carpet arrivals.', svg: wrap('<path d="M5 8l2 12h10l2-12"/><path d="M3 8h18M9 8V4l3 2 3-2v4"/>') },
+    ];
+
+    const vehicles = [
+      { name:'Executive Sedan', seats:'1–3 pax', desc:'Mercedes-Benz S-Class. The standard for solo executives and airport runs.', slotId:'home-v1', placeholder:'Drop sedan photo' },
+      { name:'Luxury SUV', seats:'1–6 pax', desc:'Cadillac Escalade. Commanding presence with room for the team and luggage.', slotId:'home-v2', placeholder:'Drop SUV photo' },
+      { name:'Sprinter Van', seats:'1–14 pax', desc:'Executive Sprinter. Conference seating, Wi-Fi, and ample cargo space.', slotId:'home-v3', placeholder:'Drop Sprinter photo' },
+    ];
+
+    const pillars = [
+      { title:'Flight tracking', desc:'We monitor every arrival and adjust pickup in real time — delays cost you nothing.', svg: wrap('<path d="M2 16l8-2 5-9 2 1-2 8 5 2v2l-7-1-2 3-2-1 1-4-6 1z"/>') },
+      { title:'Vetted chauffeurs', desc:'Background-checked, uniformed, and trained in executive etiquette.', svg: wrap('<circle cx="12" cy="8" r="4"/><path d="M5 21a7 7 0 0 1 14 0"/>') },
+      { title:'Fully insured', desc:'Commercial licensing and comprehensive coverage on every vehicle.', svg: wrap('<path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="m9 12 2 2 4-4"/>') },
+      { title:'Transparent rates', desc:'All-inclusive pricing quoted up front. No surge, no surprises.', svg: wrap('<circle cx="12" cy="12" r="9"/><path d="M12 7v10M9.5 9.5a2.5 2 0 0 1 5 0c0 2.5-5 1.5-5 4a2.5 2 0 0 0 5 0"/>') },
+    ];
+
+    const steps = [
+      { n:'1', title:'Request a quote', desc:'Tell us your route, date, and party size. Get a flat rate in minutes.' },
+      { n:'2', title:'Confirm details', desc:'Pick your vehicle and add any stops or special requests.' },
+      { n:'3', title:'Ride in comfort', desc:'Your chauffeur arrives early, tracks your schedule, and gets you there.' },
+    ];
+
+    const reviews = [
+      { quote:'Destiny has handled our executive airport runs for two years. Never once late, always immaculate.', name:'Karen Whitfield', role:'EA, Meridian Capital', initials:'KW' },
+      { quote:'Booked three Sprinters for an offsite. Seamless coordination and the chauffeurs were genuinely kind.', name:'David Okafor', role:'Ops Lead, Northwind', initials:'DO' },
+      { quote:'From the quote to the ride home, everything felt effortless and premium. My go-to now.', name:'Sofia Marchetti', role:'Director, VANTA Group', initials:'SM' },
+    ];
+
+    services.forEach(s => s.iconEl = this.icon(s.svg));
+    pillars.forEach(p => p.iconEl = this.icon(p.svg));
+
+    return {
+      tabs, stars, services, vehicles, pillars, steps, reviews,
+      submitted: this.state.submitted,
+      notSubmitted: !this.state.submitted,
+      summaryService: this.state.summaryService,
+      formRef: this.formRef,
+      onSubmit: (e) => {
+        e.preventDefault();
+        this.setState({ submitted: true, summaryService: this.state.tab });
+      },
+      reset: () => this.setState({ submitted: false }),
+    };
+  }
+}
+</script>
+</body>
+</html>

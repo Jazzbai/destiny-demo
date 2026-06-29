@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>*{box-sizing:border-box}body{margin:0}</style>
+</helmet>
+<div style="font-family:'Manrope',sans-serif;color:#0A1B33;background:#fff">
+  <dc-import name="SiteNav" active="services" hint-size="100%,78px"></dc-import>
+
+  <section style="position:relative;overflow:hidden;background:linear-gradient(118deg,#08182f 0%,#0e2b59 60%,#14397a 100%)">
+    <div style="max-width:1240px;margin:0 auto;padding:72px 32px 88px;text-align:center">
+      <span style="font-size:13px;font-weight:800;letter-spacing:2px;color:#7FB0FF;text-transform:uppercase">Services</span>
+      <h1 style="font-family:'Archivo',sans-serif;font-weight:900;font-size:54px;letter-spacing:-1.5px;color:#fff;margin:14px 0 18px;line-height:1.06">Chauffeured service,<br>every mile of the journey</h1>
+      <p style="font-size:18px;line-height:1.6;color:#C2D0E8;max-width:620px;margin:0 auto">Whether it's a 5am airport run or a 200-guest gala shuttle, we plan the logistics so you don't have to.</p>
+    </div>
+  </section>
+
+  <!-- DETAILED SERVICES -->
+  <section style="max-width:1240px;margin:0 auto;padding:80px 32px 20px;display:flex;flex-direction:column;gap:30px">
+    <sc-for list="{{ services }}" as="s" hint-placeholder-count="4">
+      <div id="{{ s.anchor }}" style="display:grid;grid-template-columns:1fr 1.25fr;gap:50px;align-items:center;background:#fff;border:1px solid #E8EDF4;border-radius:22px;overflow:hidden;box-shadow:0 8px 30px rgba(20,52,110,0.06)">
+        <image-slot id="{{ s.slotId }}" style="width:100%;height:340px;display:block" shape="rect" fit="cover" placeholder="{{ s.placeholder }}"></image-slot>
+        <div style="padding:40px 48px 40px 0">
+          <div style="display:flex;align-items:center;gap:14px;margin-bottom:16px">
+            <span style="width:50px;height:50px;border-radius:12px;background:#EEF3FC;display:flex;align-items:center;justify-content:center">{{ s.iconEl }}</span>
+            <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:30px;letter-spacing:-0.6px;margin:0">{{ s.title }}</h2>
+          </div>
+          <p style="font-size:16.5px;line-height:1.65;color:#4A5870;margin:0 0 22px">{{ s.desc }}</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:13px 24px;margin-bottom:26px">
+            <sc-for list="{{ s.points }}" as="pt" hint-placeholder-count="4">
+              <div style="display:flex;gap:10px;align-items:flex-start">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="flex-shrink:0;margin-top:1px"><circle cx="12" cy="12" r="10" fill="#EEF3FC"/><path d="m8 12 2.5 2.5L16 9" stroke="#1856c5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span style="font-size:14.5px;color:#2A3852;font-weight:600;line-height:1.4">{{ pt }}</span>
+              </div>
+            </sc-for>
+          </div>
+          <a href="contact.dc.html" style="display:inline-flex;align-items:center;gap:9px;color:#1856c5;font-weight:700;font-size:15.5px;text-decoration:none" style-hover="gap:13px">Request a quote for {{ s.short }} →</a>
+        </div>
+      </div>
+    </sc-for>
+  </section>
+
+  <!-- INCLUDED -->
+  <section style="background:#08182f;color:#fff;margin-top:80px">
+    <div style="max-width:1240px;margin:0 auto;padding:84px 32px">
+      <div style="text-align:center;margin-bottom:52px">
+        <span style="font-size:13px;font-weight:800;letter-spacing:2px;color:#5fa0ff;text-transform:uppercase">Always included</span>
+        <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:40px;letter-spacing:-1px;margin:12px 0 0;color:#fff">Standard on every reservation</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:22px">
+        <sc-for list="{{ included }}" as="i" hint-placeholder-count="4">
+          <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);border-radius:15px;padding:28px 24px">
+            <div style="width:46px;height:46px;border-radius:11px;background:rgba(59,130,246,0.18);display:flex;align-items:center;justify-content:center;margin-bottom:16px">{{ i.iconEl }}</div>
+            <h3 style="font-family:'Archivo',sans-serif;font-weight:700;font-size:17px;color:#fff;margin:0 0 7px">{{ i.title }}</h3>
+            <p style="font-size:13.5px;line-height:1.55;color:#A9BBD8;margin:0">{{ i.desc }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width:1240px;margin:0 auto;padding:90px 32px 96px;text-align:center">
+    <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:38px;letter-spacing:-0.8px;margin:0 0 14px">Let's plan your itinerary</h2>
+    <p style="font-size:17px;color:#5A6B82;margin:0 0 30px;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.6">Share your details and a reservations specialist will respond with a flat, all-inclusive rate.</p>
+    <a href="contact.dc.html" style="display:inline-block;background:#1856c5;color:#fff;font-weight:800;font-size:16px;text-decoration:none;padding:16px 34px;border-radius:12px;box-shadow:0 12px 26px rgba(24,86,197,0.28)" style-hover="background:#0f3f99">Get a Quote</a>
+  </section>
+
+  <dc-import name="SiteFooter" hint-size="100%,420px"></dc-import>
+
+  <a href="contact.dc.html" style="position:fixed;right:26px;bottom:26px;z-index:60;background:linear-gradient(120deg,#1856c5,#2f74e6);color:#fff;font-weight:800;font-size:15.5px;text-decoration:none;padding:15px 26px;border-radius:100px;box-shadow:0 16px 36px rgba(24,86,197,0.45);display:flex;align-items:center;gap:10px" style-hover="transform:translateY(-3px)">
+    <svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M3 16.5h18M5.5 16.5l1.6-5.2A2.5 2.5 0 0 1 9.5 9.5h5a2.5 2.5 0 0 1 2.4 1.8l1.6 5.2M7 19.5v-3M17 19.5v-3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7.5" cy="16.5" r="1.5" fill="#fff"/><circle cx="16.5" cy="16.5" r="1.5" fill="#fff"/></svg>
+    Get a Quote
+  </a>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  icon(inner){ return React.createElement('span',{dangerouslySetInnerHTML:{__html:'<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1856c5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">'+inner+'</svg>'}}); }
+  iconW(inner){ return React.createElement('span',{dangerouslySetInnerHTML:{__html:'<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7FB0FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">'+inner+'</svg>'}}); }
+  renderVals() {
+    const services = [
+      { title:'Airport Transfers', short:'airport service', anchor:'airport', slotId:'svc-airport', placeholder:'Drop airport / terminal photo',
+        icon:'<path d="M2 16l8-2 5-9 2 1-2 8 5 2v2l-7-1-2 3-2-1 1-4-6 1z"/>',
+        desc:'Door-to-terminal and terminal-to-door, timed to your flight. We track arrivals in real time and adjust pickup automatically, so a delay never means a missed driver.',
+        points:['Real-time flight tracking','Complimentary wait time','Meet-and-greet at baggage claim','Curbside or inside pickup'] },
+      { title:'Corporate Travel', short:'corporate travel', anchor:'corporate', slotId:'svc-corporate', placeholder:'Drop executive / office photo',
+        icon:'<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>',
+        desc:'A dedicated transportation partner for your executives and clients. Centralized account billing, consistent chauffeurs, and the discretion your business demands.',
+        points:['Monthly account billing','Dedicated chauffeurs','Priority dispatch','Detailed trip reporting'] },
+      { title:'Group & Shuttle', short:'group shuttle', anchor:'shuttle', slotId:'svc-shuttle', placeholder:'Drop Sprinter / group photo',
+        icon:'<rect x="3" y="6" width="18" height="11" rx="2"/><path d="M3 11h18M7 21v-2M17 21v-2"/>',
+        desc:'Move teams and guests effortlessly. From conference shuttles and roadshows to crew transport, we coordinate multi-vehicle logistics down to the minute.',
+        points:['Conferences & roadshows','Multi-vehicle coordination','Custom routing & schedules','On-site trip manager'] },
+      { title:'Special Events', short:'your event', anchor:'events', slotId:'svc-events', placeholder:'Drop wedding / event photo',
+        icon:'<path d="M5 8l2 12h10l2-12"/><path d="M3 8h18M9 8V4l3 2 3-2v4"/>',
+        desc:'Make the arrival unforgettable. Weddings, galas, proms, and milestone celebrations with red-carpet service and chauffeurs who understand the moment.',
+        points:['Weddings & receptions','Galas & milestone parties','Red-carpet arrivals','Decorated vehicles on request'] },
+    ];
+    services.forEach(s => s.iconEl = this.icon(s.icon));
+    const included = [
+      { title:'Vetted chauffeurs', desc:'Background-checked, uniformed, and trained in executive etiquette.', icon:'<circle cx="12" cy="8" r="4"/><path d="M5 21a7 7 0 0 1 14 0"/>' },
+      { title:'Flat-rate pricing', desc:'All-inclusive quotes confirmed up front. No surge pricing, ever.', icon:'<circle cx="12" cy="12" r="9"/><path d="M12 7v10M9.5 9.5a2.5 2 0 0 1 5 0c0 2.5-5 1.5-5 4a2.5 2 0 0 0 5 0"/>' },
+      { title:'Spotless vehicles', desc:'Detailed before every trip with water and chargers stocked.', icon:'<path d="M5 13l1.5-5h11L19 13M5 13h14v5H5zM8 18v2M16 18v2"/>' },
+      { title:'24/7 dispatch', desc:'Live support and reservations any hour, every day of the year.', icon:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>' },
+    ];
+    included.forEach(i => i.iconEl = this.iconW(i.icon));
+    return { services, included };
+  }
+}
+</script>
+</body>
+</html>

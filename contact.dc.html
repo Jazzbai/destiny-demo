@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>*{box-sizing:border-box}body{margin:0}::placeholder{color:#9AA7BC}input,select,textarea,button{font-family:'Manrope',sans-serif}</style>
+</helmet>
+<div style="font-family:'Manrope',sans-serif;color:#0A1B33;background:#F5F8FC;min-height:100vh">
+  <dc-import name="SiteNav" active="contact" hint-size="100%,78px"></dc-import>
+
+  <section style="position:relative;overflow:hidden;background:linear-gradient(118deg,#08182f 0%,#0e2b59 60%,#14397a 100%)">
+    <div style="max-width:1240px;margin:0 auto;padding:64px 32px 76px;text-align:center">
+      <span style="font-size:13px;font-weight:800;letter-spacing:2px;color:#7FB0FF;text-transform:uppercase">Get a Quote</span>
+      <h1 style="font-family:'Archivo',sans-serif;font-weight:900;font-size:50px;letter-spacing:-1.5px;color:#fff;margin:14px 0 16px;line-height:1.06">Reserve your ride</h1>
+      <p style="font-size:18px;line-height:1.6;color:#C2D0E8;max-width:560px;margin:0 auto">Fill in the details below and a reservations specialist will confirm your flat rate within 15 minutes.</p>
+    </div>
+  </section>
+
+  <section style="max-width:1240px;margin:0 auto;padding:0 32px;transform:translateY(-44px)">
+    <div style="display:grid;grid-template-columns:0.82fr 1.18fr;gap:0;border-radius:22px;overflow:hidden;box-shadow:0 24px 60px rgba(8,24,47,0.18)">
+
+      <!-- INFO PANEL -->
+      <div style="background:#0c2348;color:#fff;padding:48px 42px;display:flex;flex-direction:column">
+        <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:26px;margin:0 0 10px;color:#fff">Talk to a specialist</h2>
+        <p style="font-size:15px;line-height:1.65;color:#A9BBD8;margin:0 0 36px">Prefer to book by phone? Our dispatch team is available around the clock.</p>
+        <div style="display:flex;flex-direction:column;gap:24px;flex:1">
+          <div style="display:flex;gap:15px;align-items:flex-start">
+            <span style="width:46px;height:46px;border-radius:11px;background:rgba(59,130,246,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6.5 4h3l1.5 4-2 1.5a11 11 0 0 0 5 5l1.5-2 4 1.5v3a2 2 0 0 1-2.2 2A16 16 0 0 1 4.5 6.2 2 2 0 0 1 6.5 4Z" stroke="#7FB0FF" stroke-width="1.8"/></svg></span>
+            <div><div style="font-size:12px;font-weight:700;letter-spacing:1px;color:#7E93B8;text-transform:uppercase;margin-bottom:4px">Call / Text</div><div style="font-size:17px;font-weight:700;color:#fff">1 (800) 555-0199</div></div>
+          </div>
+          <div style="display:flex;gap:15px;align-items:flex-start">
+            <span style="width:46px;height:46px;border-radius:11px;background:rgba(59,130,246,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2.5" stroke="#7FB0FF" stroke-width="1.8"/><path d="m4 7 8 6 8-6" stroke="#7FB0FF" stroke-width="1.8"/></svg></span>
+            <div><div style="font-size:12px;font-weight:700;letter-spacing:1px;color:#7E93B8;text-transform:uppercase;margin-bottom:4px">Email</div><div style="font-size:17px;font-weight:700;color:#fff">rides@destinylimo.com</div></div>
+          </div>
+          <div style="display:flex;gap:15px;align-items:flex-start">
+            <span style="width:46px;height:46px;border-radius:11px;background:rgba(59,130,246,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#7FB0FF" stroke-width="1.8"/><path d="M12 7v5l3 2" stroke="#7FB0FF" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            <div><div style="font-size:12px;font-weight:700;letter-spacing:1px;color:#7E93B8;text-transform:uppercase;margin-bottom:4px">Hours</div><div style="font-size:17px;font-weight:700;color:#fff">24 / 7 · 365 days</div></div>
+          </div>
+        </div>
+        <div style="margin-top:32px;padding-top:28px;border-top:1px solid rgba(255,255,255,0.12);display:flex;gap:10px;align-items:center">
+          {{ starsEl }}
+          <span style="font-size:14px;color:#C2D0E8;font-weight:600">4.9 / 5 from 1,200+ riders</span>
+        </div>
+      </div>
+
+      <!-- FORM PANEL -->
+      <div style="background:#fff;padding:46px 48px">
+        <sc-if value="{{ submitted }}" hint-placeholder-val="{{ false }}">
+          <div style="text-align:center;padding:50px 12px">
+            <div style="width:74px;height:74px;border-radius:50%;background:#E7F6EE;display:flex;align-items:center;justify-content:center;margin:0 auto 22px"><svg width="36" height="36" viewBox="0 0 24 24" fill="none"><path d="m5 13 4 4 10-11" stroke="#16a35a" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <h2 style="font-family:'Archivo',sans-serif;font-size:28px;margin:0 0 12px;color:#0A1B33">Quote request received</h2>
+            <p style="font-size:16px;color:#5A6B82;line-height:1.65;margin:0 auto 28px;max-width:400px">Thank you, <strong style="color:#0A1B33">{{ name }}</strong>. A reservations specialist will confirm your <strong style="color:#0A1B33">{{ service }}</strong> rate at <strong style="color:#0A1B33">{{ email }}</strong> within 15 minutes.</p>
+            <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+              <button onClick="{{ reset }}" style="background:#F1F5FB;border:none;color:#1856c5;font-weight:700;font-size:15px;padding:13px 24px;border-radius:10px;cursor:pointer">Submit another request</button>
+              <a href="index.dc.html" style="background:#1856c5;color:#fff;font-weight:700;font-size:15px;padding:13px 24px;border-radius:10px;text-decoration:none">Back to home</a>
+            </div>
+          </div>
+        </sc-if>
+        <sc-if value="{{ notSubmitted }}" hint-placeholder-val="{{ true }}">
+        <form ref="{{ formRef }}" onSubmit="{{ onSubmit }}">
+          <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:23px;margin:0 0 22px;color:#0A1B33">Trip details</h2>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px 18px">
+            <label style="display:block"><span style="font-size:12px;font-weight:700;color:#5A6B82;letter-spacing:.3px;text-transform:uppercase">Full name</span><input name="name" required placeholder="Jane Doe" style="margin-top:6px;width:100%;border:1.5px solid #DCE4EF;border-radius:10px;padding:12px 14px;font-size:14.5px;outline:none" style-focus="border-color:#1856c5"></label>
+            <label style="display:block"><span style="font-size:12px;font-weight:700;color:#5A6B82;letter-spacing:.3px;text-transform:uppercase">Phone</span><input name="phone" required placeholder="(555) 123-4567" style="margin-top:6px;width:100%;border:1.5px solid #DCE4EF;border-radius:10px;padding:12px 14px;font-size:14.5px;outline:none" style-focus="border-color:#1856c5"></label>
+            <label style="display:block;grid-column:span 2"><span style="font-size:12px;font-weight:700;color:#5A6B82;letter-spacing:.3px;text-transform:uppercase">Email</span><input name="email" type="email" required placeholder="jane@company.com" style="margin-top:6px;width:100%;border:1.5px solid #DCE4EF;border-radius:10px;padding:12px 14px;font-size:14.5px;outline:none" style-focus="border-color:#1856c5"></label>
+            <label style="display:block"><span style="font-size:12px;font-weight:700;color:#5A6B82;letter-spacing:.3px;text-transform:uppercase">Service type</span>
+              <select name="service" style="margin-top:6px;width:100%;border:1.5px solid #DCE4EF;border-radius:10px;padding:12px 12px;font-size:14.5px;outline:none;background:#fff" style-focus="border-color:#1856c5"><option>Airport Transfer</option><option>Corporate Travel</option><option>Group / Shuttle</option><option>Special Event</option><option>Hourly Charter</option></select></label>
+            <label style="display:block"><span style="font-size:12px;font-weight:700;color:#5A6B82;letter-spacing:.3px;text-transform:uppercase">Vehicle</span>
+              <select name="vehicle" style="margin-top:6px;width:100%;border:1.5px solid #DCE4EF;border-radius:10px;padding:12px 12px;font-size:14.5px;outline:none;background:#fff" style-focus="border-color:#1856c5"><option>Executive Sedan</option><option>Luxury SUV</option><option>Executive Sprinter</option><option>Luxury Minibus</option><option>Recommend for me</option></select></label>
+            <label style="display:block;grid-column:span 2"><span style="font-size:12px;font-weight:700;color:#5A6B82;letter-spacing:.3px;text-transform:uppercase">Pickup location</span><input name="pickup" required placeholder="Address, airport, or venue" style="margin-top:6px;width:100%;border:1.5px solid #DCE4EF;border-radius:10px;padding:12px 14px;font-size:14.5px;outline:none" style-focus="border-color:#1856c5"></label>
+            <label style="display:block;grid-column:span 2"><span style="font-size:12px;font-weight:700;color:#5A6B82;letter-spacing:.3px;text-transform:uppercase">Drop-off location</span><input name="dropoff" required placeholder="Where to?" style="margin-top:6px;width:100%;border:1.5px solid #DCE4EF;border-radius:10px;padding:12px 14px;font-size:14.5px;outline:none" style-focus="border-color:#1856c5"></label>
+            <label style="display:block"><span style="font-size:12px;font-weight:700;color:#5A6B82;letter-spacing:.3px;text-transform:uppercase">Date</span><input name="date" type="date" required style="margin-top:6px;width:100%;border:1.5px solid #DCE4EF;border-radius:10px;padding:12px 12px;font-size:14px;outline:none" style-focus="border-color:#1856c5"></label>
+            <div style="display:grid;grid-template-columns:1fr 0.7fr;gap:12px">
+              <label style="display:block"><span style="font-size:12px;font-weight:700;color:#5A6B82;letter-spacing:.3px;text-transform:uppercase">Time</span><input name="time" type="time" required style="margin-top:6px;width:100%;border:1.5px solid #DCE4EF;border-radius:10px;padding:12px 12px;font-size:14px;outline:none" style-focus="border-color:#1856c5"></label>
+              <label style="display:block"><span style="font-size:12px;font-weight:700;color:#5A6B82;letter-spacing:.3px;text-transform:uppercase">Pax</span><input name="pax" type="number" min="1" max="56" value="2" style="margin-top:6px;width:100%;border:1.5px solid #DCE4EF;border-radius:10px;padding:12px 10px;font-size:14px;outline:none" style-focus="border-color:#1856c5"></label>
+            </div>
+            <label style="display:block;grid-column:span 2"><span style="font-size:12px;font-weight:700;color:#5A6B82;letter-spacing:.3px;text-transform:uppercase">Special requests <span style="font-weight:500;text-transform:none;color:#9AA7BC">(optional)</span></span><textarea name="notes" rows="3" placeholder="Child seat, multiple stops, meet-and-greet, flight number…" style="margin-top:6px;width:100%;border:1.5px solid #DCE4EF;border-radius:10px;padding:12px 14px;font-size:14.5px;outline:none;resize:vertical" style-focus="border-color:#1856c5"></textarea></label>
+          </div>
+          <button type="submit" style="margin-top:24px;width:100%;background:linear-gradient(120deg,#1856c5,#2f74e6);color:#fff;font-weight:800;font-size:16.5px;border:none;padding:16px;border-radius:12px;cursor:pointer;box-shadow:0 12px 26px rgba(24,86,197,0.3)" style-hover="filter:brightness(1.06)">Request My Quote →</button>
+          <p style="text-align:center;font-size:12.5px;color:#9AA7BC;margin:14px 0 0">No payment required to reserve · You'll receive a flat, all-inclusive rate</p>
+        </form>
+        </sc-if>
+      </div>
+    </div>
+  </section>
+
+  <div style="height:30px"></div>
+  <dc-import name="SiteFooter" hint-size="100%,420px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  state = { submitted:false, name:'', email:'', service:'' };
+  constructor(p){ super(p); this.formRef = React.createRef(); }
+  renderVals() {
+    const star = '<svg width="17" height="17" viewBox="0 0 24 24" fill="#F5B829"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.6 1.4 6.8L12 17.8 5.9 20.4l1.4-6.8L2.2 9l6.9-.7z"/></svg>';
+    return {
+      starsEl: React.createElement('span',{style:{display:'flex',gap:'2px'},dangerouslySetInnerHTML:{__html:star.repeat(5)}}),
+      submitted: this.state.submitted,
+      notSubmitted: !this.state.submitted,
+      name: this.state.name, email: this.state.email, service: this.state.service,
+      formRef: this.formRef,
+      onSubmit: (e) => {
+        e.preventDefault();
+        const f = new FormData(e.target);
+        this.setState({ submitted:true, name:(f.get('name')||'').split(' ')[0]||'there', email:f.get('email')||'your email', service:(f.get('service')||'ride').toLowerCase() });
+        window.scrollTo({top:0});
+      },
+      reset: () => this.setState({ submitted:false }),
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="image-slot.js"></script>
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;background:#ffffff;font-family:'Public Sans',system-ui,sans-serif;color:#0F1E33;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  @keyframes dst-rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+  .dst-nav-link:hover{color:#1A66E0 !important}
+  .dst-card-lift{transition:transform .25s ease, box-shadow .25s ease}
+  .dst-card-lift:hover{transform:translateY(-4px);box-shadow:0 18px 40px -18px rgba(10,37,64,.35) !important}
+  .dst-btn:hover{background:#0F4FBF !important}
+  .dst-ghost:hover{background:#EAF1FC !important;border-color:#1A66E0 !important}
+  .dst-foot-link{color:#9FB3CC;text-decoration:none;transition:color .15s}
+  .dst-foot-link:hover{color:#fff}
+</style>
+</helmet>
+
+<div style="max-width:100%;overflow-x:hidden">
+
+  <!-- UTILITY BAR -->
+  <div style="background:#071A2F;color:#AEC2DA;font-size:13px;letter-spacing:.01em">
+    <div style="max-width:1240px;margin:0 auto;padding:9px 28px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
+      <span style="display:flex;align-items:center;gap:8px">Houston's premier corporate &amp; airport ground transportation</span>
+      <div style="display:flex;align-items:center;gap:22px">
+        <a href="tel:18325550100" style="text-decoration:none;color:#fff;font-weight:600">(832) 555-0100</a>
+        <span style="color:#5E7898">24/7 reservations</span>
+        <a href="#" style="text-decoration:none;color:#AEC2DA">Corporate login</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER NAV -->
+  <header style="position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid #E3EAF2">
+    <div style="max-width:1240px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;justify-content:space-between;gap:24px">
+      <a href="Home.dc.html" style="text-decoration:none;display:flex;flex-direction:column;line-height:1">
+        <span style="font-family:'Archivo';font-weight:800;font-size:23px;letter-spacing:.18em;color:#0A2540">DESTINY</span>
+        <span style="font-size:10px;letter-spacing:.34em;color:#1A66E0;font-weight:600;margin-top:3px">TRANSPORTATION</span>
+      </a>
+      <nav style="display:flex;align-items:center;gap:30px;font-size:15px;font-weight:600">
+        <a class="dst-nav-link" href="Airport.dc.html" style="text-decoration:none;color:#27384F;transition:color .15s">Services</a>
+        <a class="dst-nav-link" href="Fleet.dc.html" style="text-decoration:none;color:#27384F;transition:color .15s">Fleet</a>
+        <a class="dst-nav-link" href="Shuttle.dc.html" style="text-decoration:none;color:#27384F;transition:color .15s">Group Shuttle</a>
+        <a class="dst-nav-link" href="#areas" style="text-decoration:none;color:#27384F;transition:color .15s">Service Areas</a>
+        <a class="dst-nav-link" href="#about" style="text-decoration:none;color:#27384F;transition:color .15s">About</a>
+      </nav>
+      <a class="dst-btn" href="Quote.dc.html" style="text-decoration:none;background:#1A66E0;color:#fff;font-weight:700;font-size:15px;padding:11px 22px;border-radius:8px;box-shadow:0 8px 20px -8px rgba(26,102,224,.6);transition:background .2s">Get a Quote</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section style="position:relative;background:#0A2540;color:#fff;overflow:hidden">
+    <image-slot id="home-hero" style="position:absolute;inset:0;width:100%;height:100%" shape="rect" fit="cover" placeholder="Drop hero photo — black SUV at night / city skyline"></image-slot>
+    <div style="position:absolute;inset:0;background:linear-gradient(105deg,rgba(7,26,47,.95) 0%,rgba(7,26,47,.82) 42%,rgba(7,26,47,.45) 100%)"></div>
+    <div style="position:relative;max-width:1240px;margin:0 auto;padding:84px 28px 100px;display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center">
+      <div style="animation:dst-rise .6s ease both">
+        <div style="display:inline-flex;align-items:center;gap:9px;background:rgba(26,102,224,.18);border:1px solid rgba(120,170,255,.3);color:#BFD6FF;font-size:13px;font-weight:600;letter-spacing:.04em;padding:7px 14px;border-radius:100px;margin-bottom:22px">
+          <span style="width:7px;height:7px;border-radius:50%;background:#56E08A"></span>On-time guarantee · Flight tracking included
+        </div>
+        <h1 style="font-family:'Archivo';font-weight:800;font-size:54px;line-height:1.04;letter-spacing:-.02em;margin:0 0 20px">Houston corporate &amp; airport car service, done right.</h1>
+        <p style="font-size:19px;line-height:1.55;color:#C7D6E8;margin:0 0 30px;max-width:520px">Professional chauffeurs, a meticulously maintained fleet, and reliable group transportation across Houston and Galveston — from a single executive sedan to a full motor coach.</p>
+        <div style="display:flex;gap:14px;flex-wrap:wrap">
+          <a class="dst-btn" href="Quote.dc.html" style="text-decoration:none;background:#1A66E0;color:#fff;font-weight:700;font-size:16px;padding:14px 26px;border-radius:9px;box-shadow:0 12px 28px -10px rgba(26,102,224,.7);transition:background .2s">Get an instant quote</a>
+          <a class="dst-ghost" href="Fleet.dc.html" style="text-decoration:none;background:transparent;border:1.5px solid rgba(255,255,255,.28);color:#fff;font-weight:600;font-size:16px;padding:13px 24px;border-radius:9px;transition:all .2s">View the fleet</a>
+        </div>
+        <div style="display:flex;gap:30px;margin-top:38px;flex-wrap:wrap">
+          <sc-for list="{{ heroTrust }}" as="t" hint-placeholder-count="3">
+            <div style="display:flex;flex-direction:column;gap:2px">
+              <span style="font-family:'Archivo';font-weight:800;font-size:24px;color:#fff">{{ t.num }}</span>
+              <span style="font-size:13px;color:#93A8C2">{{ t.label }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+      <!-- BOOKING WIDGET -->
+      <div style="background:#fff;border-radius:16px;padding:28px;box-shadow:0 30px 70px -25px rgba(0,0,0,.55);color:#0F1E33;animation:dst-rise .6s ease .12s both">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:18px">
+          <span style="font-family:'Archivo';font-weight:700;font-size:19px">Reserve your ride</span>
+          <span style="margin-left:auto;font-size:12px;font-weight:600;color:#1A66E0;background:#EAF1FC;padding:5px 10px;border-radius:6px">2-min quote</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:13px">
+          <label style="display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600;color:#51637A">Service type
+            <select style="font-family:inherit;font-size:15px;color:#0F1E33;padding:12px 13px;border:1.5px solid #E3EAF2;border-radius:9px;background:#F8FAFD">
+              <option>Airport transfer (IAH / Hobby)</option>
+              <option>Corporate / executive</option>
+              <option>Group shuttle</option>
+              <option>Galveston cruise transfer</option>
+              <option>Hourly chauffeur</option>
+              <option>Special event</option>
+            </select>
+          </label>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+            <label style="display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600;color:#51637A">Pick-up date
+              <input type="date" style="font-family:inherit;font-size:15px;color:#0F1E33;padding:11px 13px;border:1.5px solid #E3EAF2;border-radius:9px;background:#F8FAFD">
+            </label>
+            <label style="display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600;color:#51637A">Pick-up time
+              <input type="time" style="font-family:inherit;font-size:15px;color:#0F1E33;padding:11px 13px;border:1.5px solid #E3EAF2;border-radius:9px;background:#F8FAFD">
+            </label>
+          </div>
+          <label style="display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600;color:#51637A">Pick-up location
+            <input type="text" placeholder="Address, hotel, or airport" style="font-family:inherit;font-size:15px;color:#0F1E33;padding:12px 13px;border:1.5px solid #E3EAF2;border-radius:9px;background:#F8FAFD">
+          </label>
+          <label style="display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600;color:#51637A">Passengers
+            <select style="font-family:inherit;font-size:15px;color:#0F1E33;padding:12px 13px;border:1.5px solid #E3EAF2;border-radius:9px;background:#F8FAFD">
+              <option>1–3 · Executive sedan</option>
+              <option>1–6 · Luxury SUV</option>
+              <option>8–14 · Sprinter van</option>
+              <option>20–40 · Mini coach</option>
+              <option>40–56 · Motor coach</option>
+            </select>
+          </label>
+          <a class="dst-btn" href="Quote.dc.html" style="text-decoration:none;text-align:center;background:#1A66E0;color:#fff;font-weight:700;font-size:16px;padding:14px;border-radius:9px;margin-top:4px;box-shadow:0 12px 24px -10px rgba(26,102,224,.6);transition:background .2s">Get instant quote →</a>
+          <span style="text-align:center;font-size:12.5px;color:#8497AE">No payment required · Fast confirmation by a live dispatcher</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOGO / TRUST STRIP -->
+  <div style="background:#F5F8FC;border-bottom:1px solid #E9EFF6">
+    <div style="max-width:1240px;margin:0 auto;padding:22px 28px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap">
+      <span style="font-size:13px;font-weight:600;letter-spacing:.06em;color:#8497AE;text-transform:uppercase">Trusted by Houston's leading organizations</span>
+      <div style="display:flex;align-items:center;gap:40px;flex-wrap:wrap;opacity:.7">
+        <sc-for list="{{ clients }}" as="c" hint-placeholder-count="5">
+          <span style="font-family:'Archivo';font-weight:700;font-size:17px;letter-spacing:.02em;color:#51637A">{{ c }}</span>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section style="max-width:1240px;margin:0 auto;padding:84px 28px 30px">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:42px">
+      <div style="max-width:640px">
+        <div style="font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#1A66E0;margin-bottom:12px">What we do</div>
+        <h2 style="font-family:'Archivo';font-weight:800;font-size:38px;line-height:1.1;letter-spacing:-.02em;margin:0">Find your transportation need first.<br>We'll match the right vehicle.</h2>
+      </div>
+      <p style="max-width:360px;font-size:16px;line-height:1.55;color:#51637A;margin:0">Whether it's one executive or a 300-person conference, we plan the logistics and assign the fleet that fits.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px">
+      <sc-for list="{{ services }}" as="s" hint-placeholder-count="6">
+        <a class="dst-card-lift" href="{{ s.href }}" style="text-decoration:none;display:flex;flex-direction:column;background:#fff;border:1px solid #E6EDF5;border-radius:14px;padding:26px;box-shadow:0 1px 2px rgba(10,37,64,.04)">
+          <div style="width:46px;height:46px;border-radius:11px;background:#EAF1FC;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:18px">{{ s.icon }}</div>
+          <h3 style="font-family:'Archivo';font-weight:700;font-size:20px;margin:0 0 8px;color:#0F1E33">{{ s.title }}</h3>
+          <p style="font-size:14.5px;line-height:1.55;color:#51637A;margin:0 0 16px;flex:1">{{ s.desc }}</p>
+          <span style="font-size:13.5px;font-weight:700;color:#1A66E0;display:flex;align-items:center;gap:6px">{{ s.cta }} <span style="font-size:16px">→</span></span>
+        </a>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- CORPORATE PILLAR -->
+  <section style="background:#F5F8FC;margin-top:64px">
+    <div style="max-width:1240px;margin:0 auto;padding:80px 28px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center">
+      <div style="position:relative">
+        <image-slot id="home-corp" style="width:100%;height:430px;display:block" shape="rounded" radius="18" fit="cover" placeholder="Drop photo — executive boarding a black sedan"></image-slot>
+        <div style="position:absolute;bottom:-22px;left:-22px;background:#0A2540;color:#fff;border-radius:14px;padding:20px 24px;box-shadow:0 20px 40px -16px rgba(10,37,64,.5);max-width:230px">
+          <div style="font-family:'Archivo';font-weight:800;font-size:30px;line-height:1">99.6%</div>
+          <div style="font-size:13.5px;color:#AEC2DA;margin-top:4px">on-time arrival rate across corporate accounts</div>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#1A66E0;margin-bottom:12px">Core service · Airport &amp; executive</div>
+        <h2 style="font-family:'Archivo';font-weight:800;font-size:36px;line-height:1.1;letter-spacing:-.02em;margin:0 0 18px">Reliable transportation your assistant can book in seconds.</h2>
+        <p style="font-size:16.5px;line-height:1.6;color:#51637A;margin:0 0 24px">Flight tracking, curbside or meet-and-greet pickup, generous wait-time policies, and consolidated monthly billing. Built for executive assistants, office managers, and travel coordinators.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:13px 24px;margin-bottom:30px">
+          <sc-for list="{{ corpBullets }}" as="b" hint-placeholder-count="6">
+            <div style="display:flex;align-items:flex-start;gap:10px;font-size:15px;color:#27384F">
+              <span style="color:#1A66E0;font-weight:800;margin-top:1px">✓</span>{{ b }}
+            </div>
+          </sc-for>
+        </div>
+        <div style="display:flex;gap:14px;flex-wrap:wrap">
+          <a class="dst-btn" href="Quote.dc.html" style="text-decoration:none;background:#1A66E0;color:#fff;font-weight:700;font-size:15px;padding:13px 24px;border-radius:9px;box-shadow:0 10px 24px -10px rgba(26,102,224,.6);transition:background .2s">Open a corporate account</a>
+          <a class="dst-ghost" href="Airport.dc.html" style="text-decoration:none;background:#fff;border:1.5px solid #D5E0EE;color:#0F1E33;font-weight:600;font-size:15px;padding:12px 22px;border-radius:9px;transition:all .2s">Airport service details</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FLEET PREVIEW -->
+  <section style="max-width:1240px;margin:0 auto;padding:84px 28px 20px">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:38px">
+      <div>
+        <div style="font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#1A66E0;margin-bottom:12px">The fleet</div>
+        <h2 style="font-family:'Archivo';font-weight:800;font-size:38px;line-height:1.1;letter-spacing:-.02em;margin:0">From a single seat to fifty-six.</h2>
+      </div>
+      <a class="dst-nav-link" href="Fleet.dc.html" style="text-decoration:none;font-size:15px;font-weight:700;color:#1A66E0">Compare all vehicles →</a>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px">
+      <sc-for list="{{ fleet }}" as="v" hint-placeholder-count="4">
+        <a class="dst-card-lift" href="{{ v.href }}" style="text-decoration:none;display:flex;flex-direction:column;background:#fff;border:1px solid #E6EDF5;border-radius:14px;overflow:hidden;box-shadow:0 1px 2px rgba(10,37,64,.04)">
+          <image-slot id="{{ v.slot }}" style="width:100%;height:150px;display:block" shape="rect" fit="cover" placeholder="{{ v.name }}"></image-slot>
+          <div style="padding:18px">
+            <h3 style="font-family:'Archivo';font-weight:700;font-size:17px;margin:0 0 6px;color:#0F1E33">{{ v.name }}</h3>
+            <div style="display:flex;gap:14px;font-size:13px;color:#51637A;margin-bottom:10px">
+              <span style="display:flex;align-items:center;gap:5px">👤 {{ v.cap }}</span>
+              <span style="display:flex;align-items:center;gap:5px">🧳 {{ v.lug }}</span>
+            </div>
+            <p style="font-size:13px;line-height:1.45;color:#7488A0;margin:0">{{ v.use }}</p>
+          </div>
+        </a>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- SHUTTLE PILLAR -->
+  <section style="background:#0A2540;color:#fff;margin-top:80px;position:relative;overflow:hidden">
+    <div style="position:absolute;inset:0;opacity:.5"><image-slot id="home-shuttle" style="position:absolute;right:0;top:0;width:46%;height:100%" shape="rect" fit="cover" placeholder="Drop photo — Sprinter van / motor coach"></image-slot></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(90deg,#0A2540 0%,#0A2540 52%,rgba(10,37,64,.4) 100%)"></div>
+    <div style="position:relative;max-width:1240px;margin:0 auto;padding:80px 28px;display:grid;grid-template-columns:1.1fr .9fr;gap:48px">
+      <div>
+        <div style="font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#7FA8E8;margin-bottom:12px">Core service · Group &amp; shuttle</div>
+        <h2 style="font-family:'Archivo';font-weight:800;font-size:38px;line-height:1.08;letter-spacing:-.02em;margin:0 0 18px">Houston group shuttle &amp; event transportation.</h2>
+        <p style="font-size:17px;line-height:1.6;color:#C7D6E8;margin:0 0 30px;max-width:520px">Conferences, hotel-to-venue loops, employee routes, wedding guest shuttles, and cruise groups — coordinated by a dedicated on-site manager with Sprinter vans, mini coaches, and motor coaches.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:11px 24px;margin-bottom:32px;max-width:540px">
+          <sc-for list="{{ shuttleServices }}" as="s" hint-placeholder-count="8">
+            <div style="display:flex;align-items:center;gap:10px;font-size:14.5px;color:#DCE7F4"><span style="color:#56E08A;font-weight:800">✓</span>{{ s }}</div>
+          </sc-for>
+        </div>
+        <a class="dst-btn" href="Shuttle.dc.html" style="text-decoration:none;background:#1A66E0;color:#fff;font-weight:700;font-size:16px;padding:14px 26px;border-radius:9px;box-shadow:0 12px 28px -10px rgba(26,102,224,.7);transition:background .2s">Explore group shuttle service →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE AREAS -->
+  <section id="areas" style="max-width:1240px;margin:0 auto;padding:84px 28px">
+    <div style="text-align:center;max-width:640px;margin:0 auto 42px">
+      <div style="font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#1A66E0;margin-bottom:12px">Service areas</div>
+      <h2 style="font-family:'Archivo';font-weight:800;font-size:38px;line-height:1.1;letter-spacing:-.02em;margin:0 0 14px">Greater Houston &amp; Galveston</h2>
+      <p style="font-size:16.5px;line-height:1.55;color:#51637A;margin:0">Door-to-door service across the metro and down to the cruise terminals.</p>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;max-width:900px;margin:0 auto">
+      <sc-for list="{{ areas }}" as="a" hint-placeholder-count="12">
+        <span style="font-size:15px;font-weight:600;color:#27384F;background:#F2F6FB;border:1px solid #E3EAF2;padding:11px 20px;border-radius:100px">{{ a }}</span>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- WHY / SAFETY -->
+  <section id="about" style="background:#F5F8FC">
+    <div style="max-width:1240px;margin:0 auto;padding:80px 28px;display:grid;grid-template-columns:repeat(3,1fr);gap:26px">
+      <div style="grid-column:1 / -1;max-width:620px;margin-bottom:8px">
+        <div style="font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#1A66E0;margin-bottom:12px">Why Destiny</div>
+        <h2 style="font-family:'Archivo';font-weight:800;font-size:36px;line-height:1.1;letter-spacing:-.02em;margin:0">Professional chauffeurs. Disciplined standards.</h2>
+      </div>
+      <sc-for list="{{ whyCards }}" as="w" hint-placeholder-count="3">
+        <div style="background:#fff;border:1px solid #E6EDF5;border-radius:14px;padding:28px">
+          <div style="font-size:26px;margin-bottom:14px">{{ w.icon }}</div>
+          <h3 style="font-family:'Archivo';font-weight:700;font-size:20px;margin:0 0 10px">{{ w.title }}</h3>
+          <p style="font-size:15px;line-height:1.6;color:#51637A;margin:0">{{ w.desc }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section style="max-width:1240px;margin:0 auto;padding:84px 28px">
+    <div style="text-align:center;margin-bottom:44px">
+      <div style="font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#1A66E0;margin-bottom:12px">Reviews</div>
+      <h2 style="font-family:'Archivo';font-weight:800;font-size:38px;line-height:1.1;letter-spacing:-.02em;margin:0">What clients say</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px">
+      <sc-for list="{{ reviews }}" as="r" hint-placeholder-count="3">
+        <div style="background:#fff;border:1px solid #E6EDF5;border-radius:14px;padding:28px;box-shadow:0 1px 2px rgba(10,37,64,.04)">
+          <div style="color:#F5A623;font-size:16px;letter-spacing:2px;margin-bottom:14px">★★★★★</div>
+          <p style="font-size:15.5px;line-height:1.6;color:#27384F;margin:0 0 20px">"{{ r.quote }}"</p>
+          <div style="display:flex;align-items:center;gap:12px">
+            <div style="width:42px;height:42px;border-radius:50%;background:#0A2540;color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Archivo';font-weight:700;font-size:16px">{{ r.initials }}</div>
+            <div><div style="font-weight:700;font-size:14.5px">{{ r.name }}</div><div style="font-size:13px;color:#7488A0">{{ r.role }}</div></div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <section style="max-width:1240px;margin:0 auto 84px;padding:0 28px">
+    <div style="background:linear-gradient(120deg,#0A2540,#123a66);border-radius:22px;padding:60px 56px;display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap;box-shadow:0 30px 60px -28px rgba(10,37,64,.55)">
+      <div style="max-width:560px">
+        <h2 style="font-family:'Archivo';font-weight:800;font-size:36px;line-height:1.1;letter-spacing:-.02em;color:#fff;margin:0 0 12px">Ready when you are — 24/7.</h2>
+        <p style="font-size:17px;line-height:1.55;color:#C7D6E8;margin:0">Get a fast, no-obligation quote or speak with a live dispatcher right now.</p>
+      </div>
+      <div style="display:flex;gap:14px;flex-wrap:wrap">
+        <a class="dst-btn" href="Quote.dc.html" style="text-decoration:none;background:#1A66E0;color:#fff;font-weight:700;font-size:16px;padding:15px 28px;border-radius:10px;transition:background .2s">Get a quote</a>
+        <a href="tel:18325550100" style="text-decoration:none;background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.3);color:#fff;font-weight:700;font-size:16px;padding:14px 26px;border-radius:10px">Call (832) 555-0100</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="background:#071A2F;color:#9FB3CC">
+    <div style="max-width:1240px;margin:0 auto;padding:64px 28px 40px;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px">
+      <div>
+        <div style="font-family:'Archivo';font-weight:800;font-size:22px;letter-spacing:.18em;color:#fff">DESTINY</div>
+        <div style="font-size:10px;letter-spacing:.34em;color:#1A66E0;font-weight:600;margin:3px 0 18px">TRANSPORTATION</div>
+        <p style="font-size:14.5px;line-height:1.6;margin:0 0 18px;max-width:280px">Houston's premier corporate, airport, and group ground transportation. Licensed, insured, available 24/7.</p>
+        <a href="tel:18325550100" style="text-decoration:none;color:#fff;font-family:'Archivo';font-weight:700;font-size:20px">(832) 555-0100</a>
+      </div>
+      <sc-for list="{{ footerCols }}" as="col" hint-placeholder-count="3">
+        <div>
+          <div style="font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#fff;margin-bottom:16px">{{ col.title }}</div>
+          <div style="display:flex;flex-direction:column;gap:11px">
+            <sc-for list="{{ col.links }}" as="l" hint-placeholder-count="5">
+              <a class="dst-foot-link" href="{{ l.href }}" style="font-size:14.5px">{{ l.label }}</a>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+    <div style="border-top:1px solid #15324F">
+      <div style="max-width:1240px;margin:0 auto;padding:20px 28px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px;color:#6E89A8">
+        <span>© {{ year }} Destiny Transportation. All rights reserved.</span>
+        <span style="display:flex;gap:22px"><a class="dst-foot-link" href="#" style="font-size:13px">Privacy</a><a class="dst-foot-link" href="#" style="font-size:13px">Terms</a><a class="dst-foot-link" href="#" style="font-size:13px">Accessibility</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- STICKY QUOTE FAB -->
+  <a class="dst-btn" href="Quote.dc.html" style="position:fixed;right:24px;bottom:24px;z-index:60;text-decoration:none;background:#1A66E0;color:#fff;font-weight:700;font-size:15px;padding:14px 22px;border-radius:100px;box-shadow:0 16px 36px -10px rgba(26,102,224,.75);display:flex;align-items:center;gap:9px;transition:background .2s">Get a Quote</a>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      year: new Date().getFullYear(),
+      heroTrust: [
+        { num: "15+", label: "years in Houston" },
+        { num: "60k+", label: "rides completed" },
+        { num: "24/7", label: "live dispatch" },
+      ],
+      clients: ["Energy Corp", "Memorial Health", "Baker & Vance LLP", "Galleria Hotels", "Summit Events"],
+      services: [
+        { icon: "✈️", title: "Airport Transportation", desc: "IAH & Hobby transfers with live flight tracking, curbside or meet-and-greet pickup, and child-seat options.", cta: "Airport service", href: "Airport.dc.html" },
+        { icon: "💼", title: "Corporate & Executive", desc: "Executive car service, roadshows, and VIP client transport with consolidated monthly billing.", cta: "Corporate accounts", href: "Airport.dc.html" },
+        { icon: "🚐", title: "Group Shuttle Service", desc: "Conference, hotel, and employee shuttles coordinated by a dedicated on-site manager.", cta: "Group shuttle", href: "Shuttle.dc.html" },
+        { icon: "🛳️", title: "Galveston Cruise Transfers", desc: "Direct service from Houston, IAH, and Hobby to the Galveston cruise terminals — solo or by the group.", cta: "Cruise transfers", href: "Shuttle.dc.html" },
+        { icon: "🎉", title: "Special Events", desc: "Quinceañeras, prom, weddings, graduations, concerts, and game days in limos and party buses.", cta: "Event transport", href: "Fleet.dc.html" },
+        { icon: "🕐", title: "Hourly Chauffeur", desc: "Keep a chauffeur and vehicle on call by the hour for meetings, errands, or a night out.", cta: "Book hourly", href: "Quote.dc.html" },
+      ],
+      corpBullets: ["Real-time flight tracking", "Meet-and-greet at baggage claim", "Generous wait-time policy", "Consolidated monthly billing", "Early & late-night service", "Group airport transportation"],
+      fleet: [
+        { name: "Executive Sedan", cap: "1–3", lug: "2–3 bags", use: "Airport, executives, private aviation", href: "Fleet.dc.html", slot: "home-fleet-sedan" },
+        { name: "Luxury SUV", cap: "1–6", lug: "4–6 bags", use: "Families, VIP, cruise transfers", href: "Fleet.dc.html", slot: "home-fleet-suv" },
+        { name: "Mercedes Sprinter", cap: "8–14", lug: "Group", use: "Corporate, conference, cruise groups", href: "Sprinter.dc.html", slot: "home-fleet-sprinter" },
+        { name: "Mini Coach", cap: "20–40", lug: "Group", use: "Conferences, shuttles, weddings", href: "Fleet.dc.html", slot: "home-fleet-mini" },
+      ],
+      shuttleServices: ["Conference transportation", "Hotel-to-venue loops", "Airport group transfers", "Employee shuttle routes", "Wedding guest shuttles", "Cruise group transportation", "On-site coordinator", "Multi-day event service"],
+      areas: ["Houston", "Downtown", "Galleria", "Energy Corridor", "Medical Center", "The Woodlands", "Katy", "Sugar Land", "Pearland", "Cypress", "Pasadena", "Galveston"],
+      whyCards: [
+        { icon: "🛡️", title: "Safety first", desc: "Background-checked, drug-tested chauffeurs and a rigorous vehicle inspection program on every car in the fleet." },
+        { icon: "🎓", title: "Professional chauffeurs", desc: "Trained in defensive driving, etiquette, and discretion — uniformed and route-prepared for every trip." },
+        { icon: "📍", title: "On-time, every time", desc: "Live dispatch, flight tracking, and buffer planning keep arrivals on schedule, day or night." },
+      ],
+      reviews: [
+        { quote: "Our executive team relies on Destiny for every airport run. Flights get tracked, the car is always early, and billing is painless.", name: "Dana Whitfield", role: "EA to the CEO, Energy Corp", initials: "DW" },
+        { quote: "They ran shuttles for our 400-person conference across three hotels without a single missed pickup. The on-site coordinator was excellent.", name: "Marcus Lee", role: "Events Director, Summit", initials: "ML" },
+        { quote: "Booked a Sprinter for our Galveston cruise group of twelve. Spotless vehicle, smooth ride, and a chauffeur who handled all the luggage.", name: "Priya Nair", role: "Group organizer", initials: "PN" },
+      ],
+      footerCols: [
+        { title: "Services", links: [
+          { label: "Airport Transportation", href: "Airport.dc.html" },
+          { label: "Corporate & Executive", href: "Airport.dc.html" },
+          { label: "Group Shuttle", href: "Shuttle.dc.html" },
+          { label: "Galveston Cruise", href: "Shuttle.dc.html" },
+          { label: "Hourly Chauffeur", href: "Quote.dc.html" },
+        ]},
+        { title: "Fleet", links: [
+          { label: "Executive Sedan", href: "Fleet.dc.html" },
+          { label: "Luxury SUV", href: "Fleet.dc.html" },
+          { label: "Mercedes Sprinter", href: "Sprinter.dc.html" },
+          { label: "Mini & Motor Coach", href: "Fleet.dc.html" },
+          { label: "Compare all", href: "Fleet.dc.html" },
+        ]},
+        { title: "Company", links: [
+          { label: "About Destiny", href: "#about" },
+          { label: "Safety Standards", href: "#about" },
+          { label: "Service Areas", href: "#areas" },
+          { label: "Reviews", href: "#" },
+          { label: "Get a Quote", href: "Quote.dc.html" },
+        ]},
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

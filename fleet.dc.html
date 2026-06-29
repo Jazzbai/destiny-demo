@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>*{box-sizing:border-box}body{margin:0}</style>
+</helmet>
+<div style="font-family:'Manrope',sans-serif;color:#0A1B33;background:#fff">
+  <dc-import name="SiteNav" active="fleet" hint-size="100%,78px"></dc-import>
+
+  <!-- PAGE HEADER -->
+  <section style="position:relative;overflow:hidden;background:linear-gradient(118deg,#08182f 0%,#0e2b59 60%,#14397a 100%)">
+    <div style="max-width:1240px;margin:0 auto;padding:72px 32px 88px;text-align:center">
+      <span style="font-size:13px;font-weight:800;letter-spacing:2px;color:#7FB0FF;text-transform:uppercase">Our Fleet</span>
+      <h1 style="font-family:'Archivo',sans-serif;font-weight:900;font-size:54px;letter-spacing:-1.5px;color:#fff;margin:14px 0 18px;line-height:1.06">A vehicle for every occasion</h1>
+      <p style="font-size:18px;line-height:1.6;color:#C2D0E8;max-width:600px;margin:0 auto">Every car in our fleet is late-model, meticulously detailed, and driven by a professionally trained chauffeur.</p>
+    </div>
+  </section>
+
+  <!-- FLEET GRID -->
+  <section style="max-width:1240px;margin:0 auto;padding:80px 32px 30px;display:flex;flex-direction:column;gap:40px">
+    <sc-for list="{{ fleet }}" as="v" hint-placeholder-count="4">
+      <div style="display:grid;grid-template-columns:{{ v.cols }};gap:48px;align-items:center;background:#fff;border:1px solid #E8EDF4;border-radius:22px;overflow:hidden;box-shadow:0 8px 30px rgba(20,52,110,0.07)">
+        <image-slot id="{{ v.slotId }}" style="width:100%;height:330px;display:block;{{ v.imgOrder }}" shape="rect" fit="cover" placeholder="{{ v.placeholder }}"></image-slot>
+        <div style="padding:14px 44px 14px 0;{{ v.txtPad }}">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
+            <span style="font-size:12.5px;font-weight:800;letter-spacing:1.5px;color:#1856c5;text-transform:uppercase;background:#EEF3FC;padding:6px 13px;border-radius:100px">{{ v.tag }}</span>
+            <span style="font-size:13.5px;font-weight:700;color:#5A6B82">{{ v.seats }}</span>
+          </div>
+          <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:32px;letter-spacing:-0.6px;margin:0 0 6px">{{ v.name }}</h2>
+          <p style="font-size:14px;color:#8A97AC;font-weight:600;margin:0 0 16px">{{ v.model }}</p>
+          <p style="font-size:16px;line-height:1.65;color:#4A5870;margin:0 0 22px;max-width:520px">{{ v.desc }}</p>
+          <div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px">
+            <sc-for list="{{ v.features }}" as="f" hint-placeholder-count="4">
+              <span style="display:inline-flex;align-items:center;gap:7px;font-size:13.5px;font-weight:600;color:#2A3852;background:#F4F7FB;border:1px solid #E6ECF4;padding:8px 14px;border-radius:9px">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="m5 13 4 4 10-11" stroke="#1856c5" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>{{ f }}
+              </span>
+            </sc-for>
+          </div>
+          <a href="contact.dc.html" style="display:inline-flex;align-items:center;gap:9px;background:#1856c5;color:#fff;font-weight:700;font-size:15px;text-decoration:none;padding:13px 26px;border-radius:11px;box-shadow:0 10px 24px rgba(24,86,197,0.26)" style-hover="background:#0f3f99">Reserve this vehicle →</a>
+        </div>
+      </div>
+    </sc-for>
+  </section>
+
+  <!-- CTA BAND -->
+  <section style="max-width:1240px;margin:60px auto 96px;padding:0 32px">
+    <div style="border-radius:24px;background:#F5F8FC;border:1px solid #E6ECF4;padding:56px 60px;text-align:center">
+      <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:34px;letter-spacing:-0.8px;margin:0 0 12px">Not sure which vehicle fits?</h2>
+      <p style="font-size:17px;color:#5A6B82;margin:0 0 28px;max-width:540px;margin-left:auto;margin-right:auto;line-height:1.6">Tell us your party size and itinerary — we'll recommend the right car and quote a flat rate.</p>
+      <a href="contact.dc.html" style="display:inline-block;background:#1856c5;color:#fff;font-weight:800;font-size:16px;text-decoration:none;padding:16px 32px;border-radius:12px;box-shadow:0 12px 26px rgba(24,86,197,0.28)" style-hover="background:#0f3f99">Get a Quote</a>
+    </div>
+  </section>
+
+  <dc-import name="SiteFooter" hint-size="100%,420px"></dc-import>
+
+  <a href="contact.dc.html" style="position:fixed;right:26px;bottom:26px;z-index:60;background:linear-gradient(120deg,#1856c5,#2f74e6);color:#fff;font-weight:800;font-size:15.5px;text-decoration:none;padding:15px 26px;border-radius:100px;box-shadow:0 16px 36px rgba(24,86,197,0.45);display:flex;align-items:center;gap:10px" style-hover="transform:translateY(-3px)">
+    <svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M3 16.5h18M5.5 16.5l1.6-5.2A2.5 2.5 0 0 1 9.5 9.5h5a2.5 2.5 0 0 1 2.4 1.8l1.6 5.2M7 19.5v-3M17 19.5v-3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7.5" cy="16.5" r="1.5" fill="#fff"/><circle cx="16.5" cy="16.5" r="1.5" fill="#fff"/></svg>
+    Get a Quote
+  </a>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  renderVals() {
+    const fleet = [
+      { name:'Executive Sedan', model:'Mercedes-Benz S-Class · Cadillac CT6', tag:'Most popular', seats:'Up to 3 passengers', slotId:'fleet-sedan', placeholder:'Drop sedan photo',
+        desc:'The benchmark for business travel. Whisper-quiet cabin, supple leather, and climate control tuned for the back seat. Ideal for airport transfers and one-on-one meetings.',
+        features:['3 passengers','2 large bags','Bottled water','Phone chargers'] },
+      { name:'Luxury SUV', model:'Cadillac Escalade · Lincoln Navigator', tag:'Space + presence', seats:'Up to 6 passengers',  slotId:'fleet-suv', placeholder:'Drop SUV photo',
+        desc:'Command attention with room to spare. Generous cargo for golf clubs or extra luggage, captain seating, and an elevated ride for the whole team.',
+        features:['6 passengers','6 large bags','Captain seats','Privacy glass'] },
+      { name:'Executive Sprinter', model:'Mercedes-Benz Sprinter', tag:'Group travel', seats:'Up to 14 passengers', slotId:'fleet-sprinter', placeholder:'Drop Sprinter photo',
+        desc:'A mobile boardroom for offsites and roadshows. Conference-style seating, onboard Wi-Fi, USB power at every seat, and a separate luggage hold.',
+        features:['14 passengers','Onboard Wi-Fi','Conference seating','Power outlets'] },
+      { name:'Luxury Minibus', model:'Grech Motors · Ford Transit', tag:'Largest groups', seats:'Up to 28 passengers', slotId:'fleet-bus', placeholder:'Drop minibus photo',
+        desc:'For conferences, weddings, and crew transport. High-back reclining seats, overhead storage, PA system, and a smooth, quiet highway ride.',
+        features:['28 passengers','Reclining seats','Overhead storage','PA system'] },
+    ];
+    fleet.forEach((v,i) => {
+      const imgRight = i % 2 === 1;
+      v.cols = '1.05fr 1fr';
+      v.imgOrder = imgRight ? 'order:2' : '';
+      v.txtPad = imgRight ? 'padding:14px 0 14px 44px;order:1' : '';
+    });
+    return { fleet };
+  }
+}
+</script>
+</body>
+</html>
