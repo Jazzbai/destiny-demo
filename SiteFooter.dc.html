@@ -9,10 +9,20 @@
 <x-dc>
 <helmet>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    @media(max-width:900px){
+      [data-r="footgrid"]{grid-template-columns:1fr 1fr !important;gap:36px !important}
+      [data-r="footwrap"]{padding-left:24px !important;padding-right:24px !important}
+    }
+    @media(max-width:560px){
+      [data-r="footgrid"]{grid-template-columns:1fr !important;gap:32px !important}
+      [data-r="footbottom"]{flex-direction:column !important;align-items:flex-start !important}
+    }
+  </style>
 </helmet>
 <footer style="background:#08172e;color:#AEBBD0;font-family:'Manrope',sans-serif">
-  <div style="max-width:1240px;margin:0 auto;padding:72px 32px 36px">
-    <div style="display:grid;grid-template-columns:1.6fr 1fr 1fr 1.3fr;gap:48px">
+  <div data-r="footwrap" style="max-width:1240px;margin:0 auto;padding:72px 32px 36px">
+    <div data-r="footgrid" style="display:grid;grid-template-columns:1.6fr 1fr 1fr 1.3fr;gap:48px">
       <div>
         <div style="display:flex;align-items:center;gap:13px;margin-bottom:20px">
           <span style="display:flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:11px;background:linear-gradient(150deg,#1f5fd6,#3b82f6)">
@@ -57,7 +67,7 @@
         </div>
       </div>
     </div>
-    <div style="margin-top:56px;padding-top:26px;border-top:1px solid #16294a;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:13px;color:#67768F">
+    <div data-r="footbottom" style="margin-top:56px;padding-top:26px;border-top:1px solid #16294a;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:13px;color:#67768F">
       <span>© 2025 Destiny Executive Transportation. All rights reserved.</span>
       <span style="display:flex;gap:24px"><a href="#" style="color:#67768F;text-decoration:none" style-hover="color:#fff">Privacy Policy</a><a href="#" style="color:#67768F;text-decoration:none" style-hover="color:#fff">Terms of Service</a></span>
     </div>

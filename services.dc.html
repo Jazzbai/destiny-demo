@@ -11,7 +11,15 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>*{box-sizing:border-box}body{margin:0}</style>
+  <style>*{box-sizing:border-box}body{margin:0}
+    @media(max-width:880px){
+      [data-r="svcrow"]{grid-template-columns:1fr !important;gap:0 !important}
+      [data-r="svcimg"]{height:240px !important}
+      [data-r="svctxt"]{padding:32px 28px 36px !important}
+      [data-r="pad"]{padding-left:22px !important;padding-right:22px !important}
+      [data-r="inc"]{grid-template-columns:repeat(auto-fit,minmax(200px,1fr)) !important}
+    }
+  </style>
 </helmet>
 <div style="font-family:'Manrope',sans-serif;color:#0A1B33;background:#fff">
   <dc-import name="SiteNav" active="services" hint-size="100%,78px"></dc-import>
@@ -19,20 +27,20 @@
   <section style="position:relative;overflow:hidden;background:linear-gradient(118deg,#08182f 0%,#0e2b59 60%,#14397a 100%)">
     <div style="max-width:1240px;margin:0 auto;padding:72px 32px 88px;text-align:center">
       <span style="font-size:13px;font-weight:800;letter-spacing:2px;color:#7FB0FF;text-transform:uppercase">Services</span>
-      <h1 style="font-family:'Archivo',sans-serif;font-weight:900;font-size:54px;letter-spacing:-1.5px;color:#fff;margin:14px 0 18px;line-height:1.06">Chauffeured service,<br>every mile of the journey</h1>
+      <h1 style="font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(34px,7vw,54px);letter-spacing:-1.5px;color:#fff;margin:14px 0 18px;line-height:1.06">Chauffeured service,<br>every mile of the journey</h1>
       <p style="font-size:18px;line-height:1.6;color:#C2D0E8;max-width:620px;margin:0 auto">Whether it's a 5am airport run or a 200-guest gala shuttle, we plan the logistics so you don't have to.</p>
     </div>
   </section>
 
   <!-- DETAILED SERVICES -->
-  <section style="max-width:1240px;margin:0 auto;padding:80px 32px 20px;display:flex;flex-direction:column;gap:30px">
+  <section data-r="pad" style="max-width:1240px;margin:0 auto;padding:80px 32px 20px;display:flex;flex-direction:column;gap:30px">
     <sc-for list="{{ services }}" as="s" hint-placeholder-count="4">
-      <div id="{{ s.anchor }}" style="display:grid;grid-template-columns:1fr 1.25fr;gap:50px;align-items:center;background:#fff;border:1px solid #E8EDF4;border-radius:22px;overflow:hidden;box-shadow:0 8px 30px rgba(20,52,110,0.06)">
-        <image-slot id="{{ s.slotId }}" style="width:100%;height:340px;display:block" shape="rect" fit="cover" placeholder="{{ s.placeholder }}"></image-slot>
-        <div style="padding:40px 48px 40px 0">
+      <div id="{{ s.anchor }}" data-r="svcrow" style="display:grid;grid-template-columns:1fr 1.25fr;gap:50px;align-items:center;background:#fff;border:1px solid #E8EDF4;border-radius:22px;overflow:hidden;box-shadow:0 8px 30px rgba(20,52,110,0.06)">
+        <image-slot id="{{ s.slotId }}" data-r="svcimg" style="width:100%;height:340px;display:block" shape="rect" fit="cover" placeholder="{{ s.placeholder }}"></image-slot>
+        <div data-r="svctxt" style="padding:40px 48px 40px 0">
           <div style="display:flex;align-items:center;gap:14px;margin-bottom:16px">
             <span style="width:50px;height:50px;border-radius:12px;background:#EEF3FC;display:flex;align-items:center;justify-content:center">{{ s.iconEl }}</span>
-            <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:30px;letter-spacing:-0.6px;margin:0">{{ s.title }}</h2>
+            <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(24px,4.5vw,30px);letter-spacing:-0.6px;margin:0">{{ s.title }}</h2>
           </div>
           <p style="font-size:16.5px;line-height:1.65;color:#4A5870;margin:0 0 22px">{{ s.desc }}</p>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:13px 24px;margin-bottom:26px">
@@ -51,12 +59,12 @@
 
   <!-- INCLUDED -->
   <section style="background:#08182f;color:#fff;margin-top:80px">
-    <div style="max-width:1240px;margin:0 auto;padding:84px 32px">
+    <div data-r="pad" style="max-width:1240px;margin:0 auto;padding:84px 32px">
       <div style="text-align:center;margin-bottom:52px">
         <span style="font-size:13px;font-weight:800;letter-spacing:2px;color:#5fa0ff;text-transform:uppercase">Always included</span>
-        <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:40px;letter-spacing:-1px;margin:12px 0 0;color:#fff">Standard on every reservation</h2>
+        <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(27px,5vw,40px);letter-spacing:-1px;margin:12px 0 0;color:#fff">Standard on every reservation</h2>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:22px">
+      <div data-r="inc" style="display:grid;grid-template-columns:repeat(4,1fr);gap:22px">
         <sc-for list="{{ included }}" as="i" hint-placeholder-count="4">
           <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);border-radius:15px;padding:28px 24px">
             <div style="width:46px;height:46px;border-radius:11px;background:rgba(59,130,246,0.18);display:flex;align-items:center;justify-content:center;margin-bottom:16px">{{ i.iconEl }}</div>
@@ -68,8 +76,8 @@
     </div>
   </section>
 
-  <section style="max-width:1240px;margin:0 auto;padding:90px 32px 96px;text-align:center">
-    <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:38px;letter-spacing:-0.8px;margin:0 0 14px">Let's plan your itinerary</h2>
+  <section data-r="pad" style="max-width:1240px;margin:0 auto;padding:90px 32px 96px;text-align:center">
+    <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(27px,5vw,38px);letter-spacing:-0.8px;margin:0 0 14px">Let's plan your itinerary</h2>
     <p style="font-size:17px;color:#5A6B82;margin:0 0 30px;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.6">Share your details and a reservations specialist will respond with a flat, all-inclusive rate.</p>
     <a href="contact.dc.html" style="display:inline-block;background:#1856c5;color:#fff;font-weight:800;font-size:16px;text-decoration:none;padding:16px 34px;border-radius:12px;box-shadow:0 12px 26px rgba(24,86,197,0.28)" style-hover="background:#0f3f99">Get a Quote</a>
   </section>

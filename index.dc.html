@@ -17,6 +17,19 @@
     ::placeholder{color:#9AA7BC}
     input,select,button{font-family:'Manrope',sans-serif}
     @keyframes floatUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+    @media(max-width:900px){
+      [data-r="hero"]{grid-template-columns:1fr !important;gap:40px !important;padding:56px 24px 84px !important}
+      [data-r="2col"]{grid-template-columns:1fr !important;gap:38px !important}
+      [data-r="sec"]{padding-top:60px !important;padding-bottom:60px !important}
+      [data-r="pad"]{padding-left:24px !important;padding-right:24px !important}
+      [data-r="foot"]{grid-template-columns:1fr 1fr !important;gap:34px !important}
+      [data-r="ctaband"]{padding:44px 30px !important}
+    }
+    @media(max-width:560px){
+      [data-r="foot"]{grid-template-columns:1fr !important}
+      [data-r="hero"]{padding:40px 20px 64px !important}
+      [data-r="sticky"]{right:16px !important;bottom:16px !important;padding:13px 20px !important}
+    }
   </style>
 </helmet>
 <div style="font-family:'Manrope',sans-serif;color:#0A1B33;background:#fff">
@@ -26,13 +39,13 @@
   <section style="position:relative;overflow:hidden;background:linear-gradient(118deg,#08182f 0%,#0e2b59 52%,#14397a 100%)">
     <image-slot id="home-hero" style="position:absolute;inset:0;width:100%;height:100%;opacity:0.22" fit="cover" placeholder="Drop a hero photo (executive sedan at night)"></image-slot>
     <div style="position:absolute;inset:0;background:linear-gradient(118deg,rgba(8,24,47,0.92) 30%,rgba(14,43,89,0.72) 100%)"></div>
-    <div style="position:relative;max-width:1240px;margin:0 auto;padding:84px 32px 150px;display:grid;grid-template-columns:1.15fr 0.85fr;gap:56px;align-items:center">
+    <div style="position:relative;max-width:1240px;margin:0 auto;padding:84px 32px 150px;display:grid;grid-template-columns:1.15fr 0.85fr;gap:56px;align-items:center" data-r="hero">
       <div>
         <div style="display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.18);padding:8px 15px;border-radius:100px;margin-bottom:26px">
           <span style="width:7px;height:7px;border-radius:50%;background:#3ddc84;box-shadow:0 0 10px #3ddc84"></span>
           <span style="color:#CFE0FF;font-size:13px;font-weight:600;letter-spacing:.3px">Available 24/7 · On-time guarantee</span>
         </div>
-        <h1 style="font-family:'Archivo',sans-serif;font-weight:900;font-size:62px;line-height:1.04;letter-spacing:-1.5px;color:#fff;margin:0 0 22px">Arrive in command.<br>Every mile, on time.</h1>
+        <h1 style="font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(36px,7vw,62px);line-height:1.04;letter-spacing:-1.5px;color:#fff;margin:0 0 22px">Arrive in command.<br>Every mile, on time.</h1>
         <p style="font-size:19px;line-height:1.6;color:#C2D0E8;max-width:520px;margin:0 0 34px">Chauffeured airport, corporate, and event transportation built for executives who measure time in meetings, not minutes lost.</p>
         <div style="display:flex;gap:36px;flex-wrap:wrap">
           <div><div style="font-family:'Archivo',sans-serif;font-weight:800;font-size:30px;color:#fff">18+</div><div style="font-size:13.5px;color:#9DB2D6;font-weight:600">Years chauffeuring</div></div>
@@ -110,15 +123,15 @@
   </section>
 
   <!-- SERVICES -->
-  <section style="max-width:1240px;margin:0 auto;padding:96px 32px 20px">
+  <section data-r="pad" style="max-width:1240px;margin:0 auto;padding:96px 32px 20px">
     <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:46px;flex-wrap:wrap">
       <div>
         <span style="font-size:13px;font-weight:800;letter-spacing:2px;color:#1856c5;text-transform:uppercase">What we do</span>
-        <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:42px;letter-spacing:-1px;margin:12px 0 0;max-width:620px;line-height:1.08">Transportation tailored to every itinerary</h2>
+        <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(28px,5vw,42px);letter-spacing:-1px;margin:12px 0 0;max-width:620px;line-height:1.08">Transportation tailored to every itinerary</h2>
       </div>
       <a href="services.dc.html" style="color:#1856c5;font-weight:700;font-size:15px;text-decoration:none;white-space:nowrap;display:flex;align-items:center;gap:7px" style-hover="gap:11px">All services →</a>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:22px">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:22px">
       <sc-for list="{{ services }}" as="s" hint-placeholder-count="4">
         <a href="services.dc.html" style="display:block;text-decoration:none;background:#fff;border:1px solid #E8EDF4;border-radius:16px;padding:30px 26px;transition:all .2s" style-hover="border-color:#1856c5;box-shadow:0 18px 38px rgba(20,52,110,0.12);transform:translateY(-4px)">
           <div style="width:54px;height:54px;border-radius:13px;background:#EEF3FC;display:flex;align-items:center;justify-content:center;margin-bottom:20px">{{ s.iconEl }}</div>
@@ -130,16 +143,16 @@
   </section>
 
   <!-- FLEET PREVIEW -->
-  <section style="background:#F5F8FC;margin-top:96px">
-    <div style="max-width:1240px;margin:0 auto;padding:90px 32px">
+  <section data-r="sec" style="background:#F5F8FC;margin-top:96px">
+    <div data-r="pad" style="max-width:1240px;margin:0 auto;padding:90px 32px">
       <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:46px;flex-wrap:wrap">
         <div>
           <span style="font-size:13px;font-weight:800;letter-spacing:2px;color:#1856c5;text-transform:uppercase">The fleet</span>
-          <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:42px;letter-spacing:-1px;margin:12px 0 0;line-height:1.08">Immaculate vehicles,<br>professional chauffeurs</h2>
+          <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(28px,5vw,42px);letter-spacing:-1px;margin:12px 0 0;line-height:1.08">Immaculate vehicles,<br>professional chauffeurs</h2>
         </div>
         <a href="fleet.dc.html" style="color:#1856c5;font-weight:700;font-size:15px;text-decoration:none;white-space:nowrap" style-hover="text-decoration:underline">View full fleet →</a>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:24px">
         <sc-for list="{{ vehicles }}" as="v" hint-placeholder-count="3">
           <a href="fleet.dc.html" style="display:block;text-decoration:none;background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 6px 22px rgba(20,52,110,0.07);transition:all .2s" style-hover="box-shadow:0 22px 46px rgba(20,52,110,0.16);transform:translateY(-4px)">
             <image-slot id="{{ v.slotId }}" style="width:100%;height:210px;display:block" shape="rect" fit="cover" placeholder="{{ v.placeholder }}"></image-slot>
@@ -157,15 +170,15 @@
   </section>
 
   <!-- WHY US -->
-  <section style="max-width:1240px;margin:0 auto;padding:96px 32px">
-    <div style="display:grid;grid-template-columns:0.9fr 1.1fr;gap:64px;align-items:center">
+  <section data-r="pad" style="max-width:1240px;margin:0 auto;padding:96px 32px">
+    <div data-r="2col" style="display:grid;grid-template-columns:0.9fr 1.1fr;gap:64px;align-items:center">
       <div>
         <span style="font-size:13px;font-weight:800;letter-spacing:2px;color:#1856c5;text-transform:uppercase">Why Destiny</span>
-        <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:42px;letter-spacing:-1px;margin:12px 0 18px;line-height:1.08">The details others overlook</h2>
+        <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(28px,5vw,42px);letter-spacing:-1px;margin:12px 0 18px;line-height:1.08">The details others overlook</h2>
         <p style="font-size:17px;line-height:1.65;color:#5A6B82;margin:0 0 30px;max-width:440px">From flight-tracking to chauffeur etiquette, every safeguard exists so your schedule never slips.</p>
         <a href="contact.dc.html" style="display:inline-block;background:#1856c5;color:#fff;font-weight:700;font-size:15.5px;text-decoration:none;padding:14px 28px;border-radius:11px;box-shadow:0 12px 26px rgba(24,86,197,0.28)" style-hover="background:#0f3f99">Reserve now</a>
       </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px">
         <sc-for list="{{ pillars }}" as="p" hint-placeholder-count="4">
           <div style="background:#fff;border:1px solid #E8EDF4;border-radius:15px;padding:26px 24px">
             <div style="width:46px;height:46px;border-radius:11px;background:#EEF3FC;display:flex;align-items:center;justify-content:center;margin-bottom:16px">{{ p.iconEl }}</div>
@@ -178,13 +191,13 @@
   </section>
 
   <!-- HOW IT WORKS -->
-  <section style="background:#08182f;color:#fff">
-    <div style="max-width:1240px;margin:0 auto;padding:90px 32px">
+  <section data-r="sec" style="background:#08182f;color:#fff">
+    <div data-r="pad" style="max-width:1240px;margin:0 auto;padding:90px 32px">
       <div style="text-align:center;margin-bottom:56px">
         <span style="font-size:13px;font-weight:800;letter-spacing:2px;color:#5fa0ff;text-transform:uppercase">Simple by design</span>
-        <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:42px;letter-spacing:-1px;margin:12px 0 0;color:#fff">Book in three steps</h2>
+        <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(28px,5vw,42px);letter-spacing:-1px;margin:12px 0 0;color:#fff">Book in three steps</h2>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:30px;position:relative">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:30px;position:relative">
         <sc-for list="{{ steps }}" as="st" hint-placeholder-count="3">
           <div style="text-align:center">
             <div style="width:70px;height:70px;border-radius:50%;background:linear-gradient(150deg,#1856c5,#3b82f6);display:flex;align-items:center;justify-content:center;margin:0 auto 22px;font-family:'Archivo',sans-serif;font-weight:800;font-size:26px;color:#fff;box-shadow:0 14px 30px rgba(24,86,197,0.4)">{{ st.n }}</div>
@@ -197,12 +210,12 @@
   </section>
 
   <!-- TESTIMONIALS -->
-  <section style="max-width:1240px;margin:0 auto;padding:96px 32px">
+  <section data-r="pad" style="max-width:1240px;margin:0 auto;padding:96px 32px">
     <div style="text-align:center;margin-bottom:50px">
       <span style="font-size:13px;font-weight:800;letter-spacing:2px;color:#1856c5;text-transform:uppercase">Client voices</span>
-      <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:42px;letter-spacing:-1px;margin:12px 0 0;line-height:1.08">Reliability they remember</h2>
+      <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(28px,5vw,42px);letter-spacing:-1px;margin:12px 0 0;line-height:1.08">Reliability they remember</h2>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:24px">
       <sc-for list="{{ reviews }}" as="r" hint-placeholder-count="3">
         <div style="background:#fff;border:1px solid #E8EDF4;border-radius:16px;padding:32px 28px;display:flex;flex-direction:column;gap:18px">
           <div style="display:flex;gap:3px">{{ stars }}</div>
@@ -218,10 +231,10 @@
 
   <!-- CTA BAND -->
   <section style="max-width:1240px;margin:0 auto 96px;padding:0 32px">
-    <div style="position:relative;overflow:hidden;border-radius:24px;background:linear-gradient(120deg,#0e2b59,#1856c5);padding:66px 60px;display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap">
+    <div data-r="ctaband" style="position:relative;overflow:hidden;border-radius:24px;background:linear-gradient(120deg,#0e2b59,#1856c5);padding:66px 60px;display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap">
       <div style="position:absolute;right:-60px;top:-60px;width:320px;height:320px;border-radius:50%;background:rgba(255,255,255,0.06)"></div>
       <div style="position:relative">
-        <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:38px;letter-spacing:-0.8px;color:#fff;margin:0 0 12px;line-height:1.1">Your next arrival starts here</h2>
+        <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(26px,4.5vw,38px);letter-spacing:-0.8px;color:#fff;margin:0 0 12px;line-height:1.1">Your next arrival starts here</h2>
         <p style="font-size:17px;color:#CFE0FF;margin:0;max-width:520px;line-height:1.6">Get a transparent quote in minutes — or speak with a reservations specialist any hour of the day.</p>
       </div>
       <div style="position:relative;display:flex;gap:14px;flex-wrap:wrap">
@@ -234,7 +247,7 @@
   <dc-import name="SiteFooter" hint-size="100%,420px"></dc-import>
 
   <!-- STICKY QUOTE -->
-  <a href="contact.dc.html" style="position:fixed;right:26px;bottom:26px;z-index:60;background:linear-gradient(120deg,#1856c5,#2f74e6);color:#fff;font-weight:800;font-size:15.5px;text-decoration:none;padding:15px 26px;border-radius:100px;box-shadow:0 16px 36px rgba(24,86,197,0.45);display:flex;align-items:center;gap:10px" style-hover="transform:translateY(-3px)">
+  <a href="contact.dc.html" data-r="sticky" style="position:fixed;right:26px;bottom:26px;z-index:60;background:linear-gradient(120deg,#1856c5,#2f74e6);color:#fff;font-weight:800;font-size:15.5px;text-decoration:none;padding:15px 26px;border-radius:100px;box-shadow:0 16px 36px rgba(24,86,197,0.45);display:flex;align-items:center;gap:10px" style-hover="transform:translateY(-3px)">
     <svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M3 16.5h18M5.5 16.5l1.6-5.2A2.5 2.5 0 0 1 9.5 9.5h5a2.5 2.5 0 0 1 2.4 1.8l1.6 5.2M7 19.5v-3M17 19.5v-3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7.5" cy="16.5" r="1.5" fill="#fff"/><circle cx="16.5" cy="16.5" r="1.5" fill="#fff"/></svg>
     Get a Quote
   </a>
